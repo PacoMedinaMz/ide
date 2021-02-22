@@ -83,19 +83,19 @@ public class Main extends javax.swing.JFrame {
         txtCambios = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        menuNuevoArchivo = new javax.swing.JMenuItem();
+        menuAbrirArchivo = new javax.swing.JMenuItem();
+        menuGuardar = new javax.swing.JMenuItem();
+        menuGuardarComo = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
+        menuUndo = new javax.swing.JMenuItem();
+        menuRedo = new javax.swing.JMenuItem();
+        menuCortar = new javax.swing.JMenuItem();
+        menuCopiar = new javax.swing.JMenuItem();
+        menuPegar = new javax.swing.JMenuItem();
+        menuBorrar = new javax.swing.JMenuItem();
+        menuBuscar = new javax.swing.JMenuItem();
+        menuReemplazar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 0, 204));
@@ -191,76 +191,76 @@ public class Main extends javax.swing.JFrame {
         jMenu1.setForeground(new java.awt.Color(204, 204, 204));
         jMenu1.setText("Archivo");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Nuevo archivo");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuNuevoArchivo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        menuNuevoArchivo.setText("Nuevo archivo");
+        menuNuevoArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuNuevoArchivoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(menuNuevoArchivo);
 
-        jMenuItem2.setText("Abrir archivo");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menuAbrirArchivo.setText("Abrir archivo");
+        menuAbrirArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menuAbrirArchivoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(menuAbrirArchivo);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setText("Guardar");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        menuGuardar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        menuGuardar.setText("Guardar");
+        menuGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                menuGuardarActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(menuGuardar);
 
-        jMenuItem4.setText("Guardar como");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        menuGuardarComo.setText("Guardar como");
+        menuGuardarComo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                menuGuardarComoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        jMenu1.add(menuGuardarComo);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setForeground(new java.awt.Color(204, 204, 204));
         jMenu2.setText("Edit");
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setText("Undo");
-        jMenu2.add(jMenuItem5);
+        menuUndo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
+        menuUndo.setText("Undo");
+        jMenu2.add(menuUndo);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setText("Redo");
-        jMenu2.add(jMenuItem6);
+        menuRedo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
+        menuRedo.setText("Redo");
+        jMenu2.add(menuRedo);
 
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem7.setText("Cortar");
-        jMenu2.add(jMenuItem7);
+        menuCortar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        menuCortar.setText("Cortar");
+        jMenu2.add(menuCortar);
 
-        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem8.setText("Copiar");
-        jMenu2.add(jMenuItem8);
+        menuCopiar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        menuCopiar.setText("Copiar");
+        jMenu2.add(menuCopiar);
 
-        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem9.setText("Pegar");
-        jMenu2.add(jMenuItem9);
+        menuPegar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
+        menuPegar.setText("Pegar");
+        jMenu2.add(menuPegar);
 
-        jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
-        jMenuItem10.setText("Borrar");
-        jMenu2.add(jMenuItem10);
+        menuBorrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
+        menuBorrar.setText("Borrar");
+        jMenu2.add(menuBorrar);
 
-        jMenuItem11.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem11.setText("Buscar");
-        jMenu2.add(jMenuItem11);
+        menuBuscar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        menuBuscar.setText("Buscar");
+        jMenu2.add(menuBuscar);
 
-        jMenuItem12.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem12.setText("Reemplazar");
-        jMenu2.add(jMenuItem12);
+        menuReemplazar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        menuReemplazar.setText("Reemplazar");
+        jMenu2.add(menuReemplazar);
 
         jMenuBar1.add(jMenu2);
 
@@ -311,7 +311,7 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menuNuevoArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNuevoArchivoActionPerformed
         //Al clickear en "Nuevo archivo"...
         File preArchivo = this.archivoEditando;//Guardamos la instancia del archivo en caso de que tenga uno abierto
         this.archivoEditando = null;//Decimos que el archivo aún no está guardado.
@@ -325,13 +325,13 @@ public class Main extends javax.swing.JFrame {
             txtCodigo.requestFocusInWindow();//Añadimos el puntero sobre el código para estar listo para escribir.
         }
         this.setTitle(this.archivoEditando == null ? "" : this.archivoEditando.getName());
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menuNuevoArchivoActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void menuGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGuardarActionPerformed
         guardarArchivo();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_menuGuardarActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void menuAbrirArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAbrirArchivoActionPerformed
         File file = dialogLocation("¿Cuál archivo desea abrir?");
         if (file != null) {//Si seleccionó una locación...
             this.archivoEditando = file;//Guardamos la instancia del archivo.
@@ -341,9 +341,9 @@ public class Main extends javax.swing.JFrame {
         }
 
         loadCodeFromFile(file);//Leemos el código del archivo
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_menuAbrirArchivoActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void menuGuardarComoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGuardarComoActionPerformed
         File preArchivo = this.archivoEditando;//Guardamos la instancia del archivo en caso de que tenga uno abierto
         this.archivoEditando = null;//Eliminamos la instancia del archivo para forzar que pida locación para guardar el archivo.
         guardarArchivo();//Solicitamos guardar el archivo
@@ -353,7 +353,7 @@ public class Main extends javax.swing.JFrame {
             this.archivoEditando = preArchivo;//Regresamos la instancia a como estaba
         }
         this.setTitle(this.archivoEditando == null ? "" : this.archivoEditando.getName());
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_menuGuardarComoActionPerformed
 
     private void txtCodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyReleased
         refreshLenght();
@@ -512,24 +512,24 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JMenuItem menuAbrirArchivo;
+    private javax.swing.JMenuItem menuBorrar;
+    private javax.swing.JMenuItem menuBuscar;
+    private javax.swing.JMenuItem menuCopiar;
+    private javax.swing.JMenuItem menuCortar;
+    private javax.swing.JMenuItem menuGuardar;
+    private javax.swing.JMenuItem menuGuardarComo;
+    private javax.swing.JMenuItem menuNuevoArchivo;
+    private javax.swing.JMenuItem menuPegar;
+    private javax.swing.JMenuItem menuRedo;
+    private javax.swing.JMenuItem menuReemplazar;
+    private javax.swing.JMenuItem menuUndo;
     private javax.swing.JLabel txtCambios;
     private javax.swing.JTextArea txtCodigo;
     private javax.swing.JLabel txtErrores;

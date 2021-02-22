@@ -5,6 +5,7 @@
  */
 package ide;
 
+import ide.Config.Opcion;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -21,6 +22,7 @@ import javax.swing.JOptionPane;
  */
 public class Main extends javax.swing.JFrame {
 
+    public static Config config = new Config();//Archivo de configuración
     private File archivoEditando = null;
 
     /**
@@ -28,6 +30,16 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+
+        //Vamos a abrir el código del último archivo abierto antes de cerrar el IDE
+        if (!config.get(Opcion.LAST_FILE).equals("")) {//Si en la configuración, existe la ruta "last_file"
+            this.archivoEditando = new File(config.get(Opcion.LAST_FILE));//Creamos la instancia del archivo con la ruta del último archivo abierto.
+            if (!this.archivoEditando.exists()) {//Si el archivo no existe, entonces no lo abrimos.
+                this.archivoEditando = null;
+            }
+
+            loadCodeFromFile(this.archivoEditando);
+        }
     }
 
     /**
@@ -256,25 +268,7 @@ public class Main extends javax.swing.JFrame {
             return;
         }
 
-        StringBuilder codigo = new StringBuilder("");
-
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line = "";
-            while (line != null) {//Ciclamos todas las líneas del archivo
-                line = reader.readLine();
-                if (line == null) {
-                    continue;
-                }
-
-                codigo.append(line).append("\n");
-            }
-            reader.close();
-        } catch (Exception e) {
-            msg("Error al leer el archivo: " + e.getMessage());
-        }
-
-        txtCodigo.setText(codigo.toString());
+        loadCodeFromFile(file);//Leemos el código del archivo
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -313,6 +307,7 @@ public class Main extends javax.swing.JFrame {
         } catch (Exception e) {
             msg("Error al guardar el archivo: " + e.getMessage());
         }
+        config.set(Opcion.LAST_FILE, this.archivoEditando.getAbsolutePath());//Guardamos en la configuración, la ruta del último archivo editado.
     }
 
     /**
@@ -335,6 +330,28 @@ public class Main extends javax.swing.JFrame {
             return fileToSave;
         }
         return null;
+    }
+
+    private void loadCodeFromFile(File file) {
+        StringBuilder codigo = new StringBuilder("");
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line = "";
+            while (line != null) {//Ciclamos todas las líneas del archivo
+                line = reader.readLine();
+                if (line == null) {
+                    continue;
+                }
+
+                codigo.append(line).append("\n");
+            }
+            reader.close();
+        } catch (Exception e) {
+            msg("Error al leer el archivo: " + e.getMessage());
+        }
+
+        txtCodigo.setText(codigo.toString());
+        config.set(Opcion.LAST_FILE, this.archivoEditando.getAbsolutePath());//Guardamos en la configuración, la ruta del último archivo editado.
     }
 
     /**

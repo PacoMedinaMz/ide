@@ -1,10 +1,20 @@
 package ide;
 
-import static java.lang.System.out;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Ide {
     public static void main(String[] args) {
-        out.println("Hola");
+//        new Menu();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    new Main().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
     
 }

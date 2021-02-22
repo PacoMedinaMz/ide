@@ -8,6 +8,8 @@ package ide;
 import ide.Config.Opcion;
 import static ide.IDELogger.log;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -26,7 +28,7 @@ public class Main extends javax.swing.JFrame {
 
     public static Config config = new Config();//Archivo de configuración
     private File archivoEditando = null;
-    private long codeLength = 0;//Longitud del código (Se usará para verificar si hay cambios en el archivo)
+    private String codeLength = "";//Longitud del código (Se usará para verificar si hay cambios en el archivo)
 
     /**
      * Creates new form Main
@@ -44,6 +46,15 @@ public class Main extends javax.swing.JFrame {
 
             loadCodeFromFile(this.archivoEditando);
         }
+        
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent event) {
+                if (hayCambios() && preguntar("¿Quieres guardar los cambios en el archivo?", "Cambios sin guardar")) {
+                    guardarArchivo();
+                }
+            }
+        });
     }
 
     /**
@@ -323,7 +334,7 @@ public class Main extends javax.swing.JFrame {
      * @return Retornará verdadero si hay cambios en el código a editar.
      */
     private boolean hayCambios() {
-        return txtCodigo.getText().length() != codeLength;
+        return !txtCodigo.getText().equals(codeLength);
     }
 
     /**
@@ -353,7 +364,7 @@ public class Main extends javax.swing.JFrame {
         }
         config.set(Opcion.LAST_FILE, this.archivoEditando.getAbsolutePath());//Guardamos en la configuración, la ruta del último archivo editado.
         this.setTitle(this.archivoEditando.getName());//Cambiamos el nombre de la ventana y le ponemos el nombre del archivo.
-        this.codeLength = txtCodigo.getText().length();
+        this.codeLength = txtCodigo.getText();
         refreshLenght();
     }
 
@@ -398,7 +409,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         txtCodigo.setText(codigo.toString());
-        codeLength = codigo.length();
+        codeLength = codigo.toString();
         this.setTitle(file.getName());//Cambiamos el nombre de la ventana y le ponemos el nombre del archivo.
         config.set(Opcion.LAST_FILE, this.archivoEditando.getAbsolutePath());//Guardamos en la configuración, la ruta del último archivo editado.
     }
@@ -410,6 +421,16 @@ public class Main extends javax.swing.JFrame {
      */
     private void msg(String msg) {
         JOptionPane.showMessageDialog(null, msg);
+    }
+    
+    /**
+     * Función que nos abre una ventana popup con una pregunta.
+     * @param msg Pregunta
+     * @param title Título de la ventana
+     * @return Retornará verdadero si el usuario dió click en YES
+     */
+    private boolean preguntar(String msg, String title) {
+        return JOptionPane.showConfirmDialog(null, msg, title, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
     }
 
     /**

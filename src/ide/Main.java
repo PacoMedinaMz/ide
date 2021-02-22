@@ -104,6 +104,7 @@ public class Main extends javax.swing.JFrame {
         txtCodigo.setColumns(20);
         txtCodigo.setForeground(new java.awt.Color(255, 255, 255));
         txtCodigo.setRows(5);
+        txtCodigo.setCaretColor(new java.awt.Color(255, 255, 255));
         txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCodigoKeyReleased(evt);

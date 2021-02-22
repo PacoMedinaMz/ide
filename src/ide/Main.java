@@ -146,6 +146,11 @@ public class Main extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Guardar como");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
@@ -260,6 +265,17 @@ public class Main extends javax.swing.JFrame {
         
         txtCodigo.setText(codigo.toString());
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        File preArchivo = this.archivoEditando;//Guardamos la instancia del archivo en caso de que tenga uno abierto
+        this.archivoEditando = null;//Eliminamos la instancia del archivo para forzar que pida locación para guardar el archivo.
+        guardarArchivo();//Solicitamos guardar el archivo
+        
+        //Si no guardó el archivo, pero anteriormente tenía una instancia del archivo creado...
+        if (preArchivo != null && this.archivoEditando == null) {
+            this.archivoEditando = preArchivo;//Regresamos la instancia a como estaba
+        }
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * Función para la funcionalidad para guardar archivo.

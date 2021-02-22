@@ -246,7 +246,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         StringBuilder codigo = new StringBuilder("");
-        
+
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String line = "";
@@ -262,7 +262,7 @@ public class Main extends javax.swing.JFrame {
         } catch (Exception e) {
             msg("Error al leer el archivo: " + e.getMessage());
         }
-        
+
         txtCodigo.setText(codigo.toString());
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -270,7 +270,7 @@ public class Main extends javax.swing.JFrame {
         File preArchivo = this.archivoEditando;//Guardamos la instancia del archivo en caso de que tenga uno abierto
         this.archivoEditando = null;//Eliminamos la instancia del archivo para forzar que pida locación para guardar el archivo.
         guardarArchivo();//Solicitamos guardar el archivo
-        
+
         //Si no guardó el archivo, pero anteriormente tenía una instancia del archivo creado...
         if (preArchivo != null && this.archivoEditando == null) {
             this.archivoEditando = preArchivo;//Regresamos la instancia a como estaba
@@ -305,9 +305,11 @@ public class Main extends javax.swing.JFrame {
     }
 
     /**
-     * Función que se encarga de abrir la ventana popup para seleccionar un archivo o locación
+     * Función que se encarga de abrir la ventana popup para seleccionar un
+     * archivo o locación
+     *
      * @param title Título de la ventana
-     * @return 
+     * @return
      */
     private File dialogLocation(String title) {
         JFrame parentFrame = new JFrame();
@@ -323,9 +325,10 @@ public class Main extends javax.swing.JFrame {
         }
         return null;
     }
-    
+
     /**
      * Función que nos abre una ventana popup con un mensaje de alerta.
+     *
      * @param msg Alerta a mostrar
      */
     private void msg(String msg) {

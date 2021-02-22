@@ -3,6 +3,7 @@
  */
 package ide;
 
+import static ide.IDELogger.log;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -48,7 +49,7 @@ public class Config {
         try {
             load();
         } catch (Exception e) {
-            System.out.println("Error al leer el archivo de configuración: " + e.getMessage());
+            log("Error al leer el archivo de configuración: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -88,7 +89,7 @@ public class Config {
         try {
             save();
         } catch (Exception e) {
-            System.out.println("Error al guardar el archivo de configuración: " + e.getMessage());
+            log("Error al guardar el archivo de configuración: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -142,6 +143,6 @@ public class Config {
 
         bw.write(str.toString());
         bw.close();
-        System.out.println("Configuración guardada.");
+        log("Configuración guardada.");
     }
 }

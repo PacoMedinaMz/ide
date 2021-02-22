@@ -251,10 +251,18 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         //Al clickear en "Nuevo archivo"...
-        txtCodigo.setText("");//Eliminamos el texto que tenga el código
-        txtCodigo.requestFocusInWindow();//Añadimos el puntero sobre el código para estar listo para escribir.
+        File preArchivo = this.archivoEditando;//Guardamos la instancia del archivo en caso de que tenga uno abierto
         this.archivoEditando = null;//Decimos que el archivo aún no está guardado.
         guardarArchivo();
+
+        //Si no guardó el archivo, pero anteriormente tenía una instancia del archivo creado...
+        if (preArchivo != null && this.archivoEditando == null) {
+            this.archivoEditando = preArchivo;//Regresamos la instancia a como estaba
+        } else {
+            txtCodigo.setText("");//Eliminamos el texto que tenga el código
+            txtCodigo.requestFocusInWindow();//Añadimos el puntero sobre el código para estar listo para escribir.
+        }
+        this.setTitle(this.archivoEditando == null ? "" : this.archivoEditando.getName());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -282,6 +290,7 @@ public class Main extends javax.swing.JFrame {
         if (preArchivo != null && this.archivoEditando == null) {
             this.archivoEditando = preArchivo;//Regresamos la instancia a como estaba
         }
+        this.setTitle(this.archivoEditando == null ? "" : this.archivoEditando.getName());
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
@@ -310,6 +319,7 @@ public class Main extends javax.swing.JFrame {
             msg("Error al guardar el archivo: " + e.getMessage());
         }
         config.set(Opcion.LAST_FILE, this.archivoEditando.getAbsolutePath());//Guardamos en la configuración, la ruta del último archivo editado.
+        this.setTitle(this.archivoEditando.getName());//Cambiamos el nombre de la ventana y le ponemos el nombre del archivo.
     }
 
     /**

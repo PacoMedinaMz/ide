@@ -240,6 +240,7 @@ public class Main extends javax.swing.JFrame {
         txtCodigo.setText("");//Eliminamos el texto que tenga el código
         txtCodigo.requestFocusInWindow();//Añadimos el puntero sobre el código para estar listo para escribir.
         this.archivoEditando = null;//Decimos que el archivo aún no está guardado.
+        guardarArchivo();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed

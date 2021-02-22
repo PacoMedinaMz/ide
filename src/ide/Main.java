@@ -16,9 +16,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.OutputStreamWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -36,6 +39,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         log("Iniciando IDE...");
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(60, 63, 65));
 
         //Vamos a abrir el código del último archivo abierto antes de cerrar el IDE
         if (!config.get(Opcion.LAST_FILE).equals("")) {//Si en la configuración, existe la ruta "last_file"
@@ -46,7 +50,7 @@ public class Main extends javax.swing.JFrame {
 
             loadCodeFromFile(this.archivoEditando);
         }
-        
+
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent event) {
@@ -94,8 +98,11 @@ public class Main extends javax.swing.JFrame {
         jMenuItem12 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 0, 204));
 
+        txtCodigo.setBackground(new java.awt.Color(43, 43, 43));
         txtCodigo.setColumns(20);
+        txtCodigo.setForeground(new java.awt.Color(255, 255, 255));
         txtCodigo.setRows(5);
         txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -104,14 +111,28 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(txtCodigo);
 
+        txtLabelCodigo.setBackground(new java.awt.Color(60, 63, 65));
+        txtLabelCodigo.setForeground(new java.awt.Color(255, 255, 255));
         txtLabelCodigo.setText("Código:");
+        txtLabelCodigo.setOpaque(true);
 
+        jLabel2.setBackground(new java.awt.Color(60, 63, 65));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Errores");
+        jLabel2.setOpaque(true);
 
+        txtErrores.setBackground(new java.awt.Color(43, 43, 43));
+        txtErrores.setForeground(new java.awt.Color(255, 255, 255));
         txtErrores.setText("No hay errores");
         txtErrores.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        txtErrores.setOpaque(true);
 
+        jTabbedPane2.setBackground(new java.awt.Color(60, 63, 65));
+        jTabbedPane2.setForeground(new java.awt.Color(255, 255, 255));
         jTabbedPane2.setName("Léxico"); // NOI18N
+        jTabbedPane2.setOpaque(true);
+
+        jPanel2.setBackground(new java.awt.Color(43, 43, 43));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -126,6 +147,9 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Léxico", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -138,6 +162,9 @@ public class Main extends javax.swing.JFrame {
         );
 
         jTabbedPane2.addTab("Sintáctico", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(43, 43, 43));
+        jPanel4.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -152,6 +179,15 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Semántico", jPanel4);
 
+        txtCambios.setBackground(new java.awt.Color(60, 63, 65));
+        txtCambios.setForeground(new java.awt.Color(255, 255, 255));
+        txtCambios.setOpaque(true);
+
+        jMenuBar1.setBackground(new java.awt.Color(60, 63, 65));
+        jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jMenu1.setBackground(new java.awt.Color(204, 204, 204));
+        jMenu1.setForeground(new java.awt.Color(204, 204, 204));
         jMenu1.setText("Archivo");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
@@ -190,6 +226,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setForeground(new java.awt.Color(204, 204, 204));
         jMenu2.setText("Edit");
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
@@ -422,9 +459,10 @@ public class Main extends javax.swing.JFrame {
     private void msg(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }
-    
+
     /**
      * Función que nos abre una ventana popup con una pregunta.
+     *
      * @param msg Pregunta
      * @param title Título de la ventana
      * @return Retornará verdadero si el usuario dió click en YES

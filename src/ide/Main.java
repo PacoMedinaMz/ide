@@ -353,6 +353,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         txtCodigo.setText(codigo.toString());
+        this.setTitle(file.getName());//Cambiamos el nombre de la ventana y le ponemos el nombre del archivo.
         config.set(Opcion.LAST_FILE, this.archivoEditando.getAbsolutePath());//Guardamos en la configuración, la ruta del último archivo editado.
     }
 

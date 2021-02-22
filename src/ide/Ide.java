@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 
 public class Ide {
     public static void main(String[] args) {
-//        new Menu();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {

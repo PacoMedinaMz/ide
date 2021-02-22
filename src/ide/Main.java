@@ -6,6 +6,7 @@
 package ide;
 
 import ide.Config.Opcion;
+import static ide.IDELogger.log;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -29,6 +30,7 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     public Main() {
+        log("Iniciando IDE...");
         initComponents();
 
         //Vamos a abrir el código del último archivo abierto antes de cerrar el IDE
@@ -303,7 +305,7 @@ public class Main extends javax.swing.JFrame {
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.archivoEditando)));
             bw.write(txtCodigo.getText());
             bw.close();
-            System.out.println("Archivo guardado.");
+            log("Archivo guardado.");
         } catch (Exception e) {
             msg("Error al guardar el archivo: " + e.getMessage());
         }
@@ -326,7 +328,7 @@ public class Main extends javax.swing.JFrame {
         //Si dió click al botón de "Aceptar"
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = fileChooser.getSelectedFile();
-            System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+            log("Arhivo seleccionado: " + fileToSave.getAbsolutePath());
             return fileToSave;
         }
         return null;

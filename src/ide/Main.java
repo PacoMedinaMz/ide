@@ -5,11 +5,21 @@
  */
 package ide;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Rodrigo Maafs
  */
 public class Main extends javax.swing.JFrame {
+
+    private File archivoEditando = null;
 
     /**
      * Creates new form Main
@@ -29,10 +39,10 @@ public class Main extends javax.swing.JFrame {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtCodigo = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        txtErrores = new javax.swing.JLabel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -55,16 +65,16 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtCodigo.setColumns(20);
+        txtCodigo.setRows(5);
+        jScrollPane1.setViewportView(txtCodigo);
 
         jLabel1.setText("Código");
 
         jLabel2.setText("Errores");
 
-        jLabel3.setText("No hay errores");
-        jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        txtErrores.setText("No hay errores");
+        txtErrores.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jTabbedPane2.setName("Léxico"); // NOI18N
 
@@ -110,12 +120,22 @@ public class Main extends javax.swing.JFrame {
         jMenu1.setText("Archivo");
 
         jMenuItem1.setText("Nuevo archivo");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Abrir archivo");
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Guardar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Guardar como");
@@ -160,7 +180,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtErrores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -184,7 +204,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtErrores, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -192,6 +212,72 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        //Al clickear en "Nuevo archivo"...
+        txtCodigo.setText("");//Eliminamos el texto que tenga el código
+        txtCodigo.requestFocusInWindow();//Añadimos el puntero sobre el código para estar listo para escribir.
+        this.archivoEditando = null;//Decimos que el archivo aún no está guardado.
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        guardarArchivo();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    /**
+     * Función para la funcionalidad para guardar archivo.
+     */
+    private void guardarArchivo() {
+        //Si el archivo, NO había sido previamente creado
+        if (archivoEditando == null) {
+            //Le preguntamos donde lo quiere guardar
+            File file = dialogLocation("¿Donde desea guardar el archivo?");
+            if (file != null) {//Si seleccionó una locación...
+                this.archivoEditando = file;//Guardamos la instancia del archivo.
+            } else {
+                msg("Se canceló el guardar el archivo");
+                return;
+            }
+        }
+
+        //Escribimos todo nuestro código en el archivo.
+        try {
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.archivoEditando)));
+            bw.write(txtCodigo.getText());
+            bw.close();
+            System.out.println("Archivo guardado.");
+        } catch (Exception e) {
+            msg("Error al guardar el archivo: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Función que se encarga de abrir la ventana popup para seleccionar un archivo o locación
+     * @param title Título de la ventana
+     * @return 
+     */
+    private File dialogLocation(String title) {
+        JFrame parentFrame = new JFrame();
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle(title);
+        int userSelection = fileChooser.showSaveDialog(parentFrame);
+
+        //Si dió click al botón de "Aceptar"
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+            return fileToSave;
+        }
+        return null;
+    }
+    
+    /**
+     * Función que nos abre una ventana popup con un mensaje de alerta.
+     * @param msg Alerta a mostrar
+     */
+    private void msg(String msg) {
+        JOptionPane.showMessageDialog(null, msg);
+    }
 
     /**
      * @param args the command line arguments
@@ -231,7 +317,6 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -253,6 +338,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txtCodigo;
+    private javax.swing.JLabel txtErrores;
     // End of variables declaration//GEN-END:variables
 }

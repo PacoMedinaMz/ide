@@ -8,6 +8,9 @@ package ide;
 import ide.Config.Opcion;
 import static ide.IDELogger.log;
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
@@ -16,12 +19,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.OutputStreamWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Stack;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.KeyStroke;
+import javax.swing.text.DefaultEditorKit;
 
 /**
  *
@@ -32,6 +37,8 @@ public class Main extends javax.swing.JFrame {
     public static Config config = new Config();//Archivo de configuración
     private File archivoEditando = null;
     private String codeLength = "";//Longitud del código (Se usará para verificar si hay cambios en el archivo)
+    private Stack<String> movimientos = new Stack<>();
+    private Stack<String> movimientosY = new Stack<>();
 
     /**
      * Creates new form Main
@@ -40,6 +47,16 @@ public class Main extends javax.swing.JFrame {
         log("Iniciando IDE...");
         initComponents();
         getContentPane().setBackground(new java.awt.Color(60, 63, 65));
+
+        AbstractAction pasteAction = new DefaultEditorKit.PasteAction();
+        pasteAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_V, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        menuPegar.setAction(pasteAction);
+        menuPegar.setText("Pegar");
+
+        AbstractAction copyAction = new DefaultEditorKit.CopyAction();
+        copyAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        menuCopiar.setAction(copyAction);
+        menuCopiar.setText("Copiar");
 
         //Vamos a abrir el código del último archivo abierto antes de cerrar el IDE
         if (!config.get(Opcion.LAST_FILE).equals("")) {//Si en la configuración, existe la ruta "last_file"
@@ -108,6 +125,9 @@ public class Main extends javax.swing.JFrame {
         txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCodigoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoKeyTyped(evt);
             }
         });
         jScrollPane1.setViewportView(txtCodigo);
@@ -232,10 +252,20 @@ public class Main extends javax.swing.JFrame {
 
         menuUndo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
         menuUndo.setText("Undo");
+        menuUndo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUndoActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuUndo);
 
         menuRedo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
         menuRedo.setText("Redo");
+        menuRedo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRedoActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuRedo);
 
         menuCortar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
@@ -244,10 +274,20 @@ public class Main extends javax.swing.JFrame {
 
         menuCopiar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         menuCopiar.setText("Copiar");
+        menuCopiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCopiarActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuCopiar);
 
         menuPegar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
         menuPegar.setText("Pegar");
+        menuPegar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuPegarActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuPegar);
 
         menuBorrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
@@ -359,6 +399,68 @@ public class Main extends javax.swing.JFrame {
         refreshLenght();
     }//GEN-LAST:event_txtCodigoKeyReleased
 
+    private void menuUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUndoActionPerformed
+        removeMovimiento();
+    }//GEN-LAST:event_menuUndoActionPerformed
+
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
+//        System.out.println(evt.paramString());
+        if (evt.paramString().contains("")) {//CTRL + Z, Mágicamente, si elimino esta línea, no sirve el undo CTRL + Z, #VivaJava
+        } else if (evt.paramString().contains("")) {//CTRL + Y, Igual mágicamente si quito este if, no sirve. #VivaJava
+        } else if (evt.paramString().contains("")) {//CTRL + V
+            clickPegar();
+        } else {
+            addMovimiento();
+        }
+    }//GEN-LAST:event_txtCodigoKeyTyped
+
+    private void menuPegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPegarActionPerformed
+        log("Pegar");
+        clickPegar();
+    }//GEN-LAST:event_menuPegarActionPerformed
+
+    private void menuRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRedoActionPerformed
+        log("Redo");
+        if (!movimientosY.isEmpty()) {
+            addMovimiento();
+            String nuevo = movimientosY.pop();
+            txtCodigo.setText(nuevo);
+        }
+    }//GEN-LAST:event_menuRedoActionPerformed
+
+    private void menuCopiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCopiarActionPerformed
+        log("Copiar");
+        clickCopiar();
+    }//GEN-LAST:event_menuCopiarActionPerformed
+
+    private void clickPegar() {
+        addMovimiento();
+        refreshLenght();
+    }
+
+    private void clickCopiar() {
+        refreshLenght();
+    }
+
+    private void addMovimiento() {
+        movimientos.push(txtCodigo.getText());
+    }
+
+    private void removeMovimiento() {
+        movimientosY.push(txtCodigo.getText());
+        String aremover = movimientos.size() > 1 ? movimientos.pop() : movimientos.peek();
+        txtCodigo.setText(aremover);
+    }
+
+    private String getTextClipBoard() {
+        String clipboard = "";
+        try {
+            clipboard = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
+        } catch (Exception e) {
+        }
+        return clipboard;
+    }
+
     private void refreshLenght() {
         //Función que se ejecuta cuando escribe un nuevo carácter en el código.
         boolean hayCambios = hayCambios();
@@ -450,6 +552,10 @@ public class Main extends javax.swing.JFrame {
         codeLength = codigo.toString();
         this.setTitle(file.getName());//Cambiamos el nombre de la ventana y le ponemos el nombre del archivo.
         config.set(Opcion.LAST_FILE, this.archivoEditando.getAbsolutePath());//Guardamos en la configuración, la ruta del último archivo editado.
+
+        //Limpiamos los movimientos
+        movimientos.clear();
+        addMovimiento();
     }
 
     /**

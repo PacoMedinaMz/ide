@@ -57,6 +57,11 @@ public class Main extends javax.swing.JFrame {
         copyAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         menuCopiar.setAction(copyAction);
         menuCopiar.setText("Copiar");
+        
+        AbstractAction cutAction = new DefaultEditorKit.CutAction();
+        cutAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_X, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        menuCortar.setAction(cutAction);
+        menuCortar.setText("Cortar");
 
         //Vamos a abrir el código del último archivo abierto antes de cerrar el IDE
         if (!config.get(Opcion.LAST_FILE).equals("")) {//Si en la configuración, existe la ruta "last_file"
@@ -270,6 +275,11 @@ public class Main extends javax.swing.JFrame {
 
         menuCortar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
         menuCortar.setText("Cortar");
+        menuCortar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCortarActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuCortar);
 
         menuCopiar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
@@ -409,6 +419,8 @@ public class Main extends javax.swing.JFrame {
         } else if (evt.paramString().contains("")) {//CTRL + Y, Igual mágicamente si quito este if, no sirve. #VivaJava
         } else if (evt.paramString().contains("")) {//CTRL + V
             clickPegar();
+        } else if (evt.paramString().contains("keyChar=Cancelar,modifiers=Ctrl")) {//CTRL + X
+            clickCortar();
         } else {
             addMovimiento();
         }
@@ -433,12 +445,21 @@ public class Main extends javax.swing.JFrame {
         clickCopiar();
     }//GEN-LAST:event_menuCopiarActionPerformed
 
+    private void menuCortarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCortarActionPerformed
+        log("Cortar");
+        clickCortar();
+    }//GEN-LAST:event_menuCortarActionPerformed
+
     private void clickPegar() {
         addMovimiento();
         refreshLenght();
     }
 
     private void clickCopiar() {
+        refreshLenght();
+    }
+    
+    private void clickCortar() {
         refreshLenght();
     }
 

@@ -46,23 +46,9 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         log("Iniciando IDE...");
         initComponents();
-        getContentPane().setBackground(new java.awt.Color(60, 63, 65));
-
-        AbstractAction pasteAction = new DefaultEditorKit.PasteAction();
-        pasteAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_V, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        menuPegar.setAction(pasteAction);
-        menuPegar.setText("Pegar");
-
-        AbstractAction copyAction = new DefaultEditorKit.CopyAction();
-        copyAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        menuCopiar.setAction(copyAction);
-        menuCopiar.setText("Copiar");
+        initComponents2();
+        initColors();
         
-        AbstractAction cutAction = new DefaultEditorKit.CutAction();
-        cutAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_X, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        menuCortar.setAction(cutAction);
-        menuCortar.setText("Cortar");
-
         //Vamos a abrir el código del último archivo abierto antes de cerrar el IDE
         if (!config.get(Opcion.LAST_FILE).equals("")) {//Si en la configuración, existe la ruta "last_file"
             this.archivoEditando = new File(config.get(Opcion.LAST_FILE));//Creamos la instancia del archivo con la ruta del último archivo abierto.
@@ -81,6 +67,33 @@ public class Main extends javax.swing.JFrame {
                 }
             }
         });
+    }
+    
+    /**
+     * Función que edita los colores de ciertos componentes
+     */
+    private void initColors() {
+        getContentPane().setBackground(new java.awt.Color(60, 63, 65));
+    }
+    
+    /**
+     * Función para seguir modificando los componentes gráficos.
+     */
+    private void initComponents2() {
+        AbstractAction pasteAction = new DefaultEditorKit.PasteAction();
+        pasteAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_V, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        menuPegar.setAction(pasteAction);
+        menuPegar.setText("Pegar");
+
+        AbstractAction copyAction = new DefaultEditorKit.CopyAction();
+        copyAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        menuCopiar.setAction(copyAction);
+        menuCopiar.setText("Copiar");
+        
+        AbstractAction cutAction = new DefaultEditorKit.CutAction();
+        cutAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_X, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        menuCortar.setAction(cutAction);
+        menuCortar.setText("Cortar");
     }
 
     /**
@@ -302,6 +315,11 @@ public class Main extends javax.swing.JFrame {
 
         menuBorrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
         menuBorrar.setText("Borrar");
+        menuBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuBorrarActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuBorrar);
 
         menuBuscar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
@@ -450,6 +468,11 @@ public class Main extends javax.swing.JFrame {
         clickCortar();
     }//GEN-LAST:event_menuCortarActionPerformed
 
+    private void menuBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBorrarActionPerformed
+        log("Borrar");
+        clickBorrar();
+    }//GEN-LAST:event_menuBorrarActionPerformed
+
     private void clickPegar() {
         addMovimiento();
         refreshLenght();
@@ -460,6 +483,11 @@ public class Main extends javax.swing.JFrame {
     }
     
     private void clickCortar() {
+        refreshLenght();
+    }
+    
+    private void clickBorrar() {
+        txtCodigo.replaceSelection("");
         refreshLenght();
     }
 

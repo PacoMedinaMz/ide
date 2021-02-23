@@ -62,6 +62,11 @@ public class Main extends javax.swing.JFrame {
         cutAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_X, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         menuCortar.setAction(cutAction);
         menuCortar.setText("Cortar");
+        
+//        AbstractAction cutAction = new DefaultEditorKit.CutAction();
+//        cutAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_X, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+//        menuCortar.setAction(cutAction);
+//        menuCortar.setText("Cortar");
 
         //Vamos a abrir el código del último archivo abierto antes de cerrar el IDE
         if (!config.get(Opcion.LAST_FILE).equals("")) {//Si en la configuración, existe la ruta "last_file"
@@ -302,6 +307,11 @@ public class Main extends javax.swing.JFrame {
 
         menuBorrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
         menuBorrar.setText("Borrar");
+        menuBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuBorrarActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuBorrar);
 
         menuBuscar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
@@ -450,6 +460,11 @@ public class Main extends javax.swing.JFrame {
         clickCortar();
     }//GEN-LAST:event_menuCortarActionPerformed
 
+    private void menuBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBorrarActionPerformed
+        log("Borrar");
+        clickBorrar();
+    }//GEN-LAST:event_menuBorrarActionPerformed
+
     private void clickPegar() {
         addMovimiento();
         refreshLenght();
@@ -460,6 +475,11 @@ public class Main extends javax.swing.JFrame {
     }
     
     private void clickCortar() {
+        refreshLenght();
+    }
+    
+    private void clickBorrar() {
+        txtCodigo.replaceSelection("");
         refreshLenght();
     }
 

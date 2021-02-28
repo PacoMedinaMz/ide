@@ -1,2 +1,2 @@
-Ya quedo
+Ya quedo sinn sudo su
 

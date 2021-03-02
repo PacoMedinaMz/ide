@@ -49,19 +49,6 @@ public class Main extends javax.swing.JFrame {
         initComponents2();
         initColors();
         
-<<<<<<< HEAD
-=======
-        AbstractAction cutAction = new DefaultEditorKit.CutAction();
-        cutAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_X, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        menuCortar.setAction(cutAction);
-        menuCortar.setText("Cortar");
-        
-//        AbstractAction cutAction = new DefaultEditorKit.CutAction();
-//        cutAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_X, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-//        menuCortar.setAction(cutAction);
-//        menuCortar.setText("Cortar");
-
->>>>>>> 2d6fdb8ded3f6ce5e791b9ebda13cd3f16cbf68f
         //Vamos a abrir el código del último archivo abierto antes de cerrar el IDE
         if (!config.get(Opcion.LAST_FILE).equals("")) {//Si en la configuración, existe la ruta "last_file"
             this.archivoEditando = new File(config.get(Opcion.LAST_FILE));//Creamos la instancia del archivo con la ruta del último archivo abierto.
@@ -279,7 +266,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setForeground(new java.awt.Color(204, 204, 204));
-        jMenu2.setText("Edit");
+        jMenu2.setText("Editar");
 
         menuUndo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
         menuUndo.setText("Undo");

@@ -75,6 +75,7 @@ namespace ProyCompilador
             this.opUndo = new System.Windows.Forms.ToolStripMenuItem();
             this.opRedo = new System.Windows.Forms.ToolStripMenuItem();
             this.opSelectAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCompilar = new System.Windows.Forms.Button();
             this.panelarea.SuspendLayout();
             this.pestanas.SuspendLayout();
             this.lexico.SuspendLayout();
@@ -410,11 +411,19 @@ namespace ProyCompilador
             this.opSelectAll.Name = "opSelectAll";
             this.opSelectAll.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
+            // btnCompilar
+            // 
+            resources.ApplyResources(this.btnCompilar, "btnCompilar");
+            this.btnCompilar.Name = "btnCompilar";
+            this.btnCompilar.UseVisualStyleBackColor = true;
+            this.btnCompilar.Click += new System.EventHandler(this.btnCompilar_Click_1);
+            // 
             // ventana
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Controls.Add(this.btnCompilar);
             this.Controls.Add(this.tools);
             this.Controls.Add(this.panelResult);
             this.Controls.Add(this.panelarea);
@@ -516,6 +525,7 @@ namespace ProyCompilador
         private System.Windows.Forms.DataGridViewTextBoxColumn cColumna;
         private System.Windows.Forms.DataGridViewTextBoxColumn cLinea;
         private System.Windows.Forms.DataGridViewTextBoxColumn cIndice;
+        private System.Windows.Forms.Button btnCompilar;
     }
 }
 

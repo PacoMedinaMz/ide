@@ -57,116 +57,115 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Private.CoreLib" name="System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e" />
-  <data name="label1.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing.Primitives" name="System.Drawing.Primitives, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 15</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>label1</value>
   </data>
-  <data name="cNombre.MinimumWidth" type="System.Int32, System.Private.CoreLib">
-    <value>60</value>
+  <data name="panelarea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>673, 61</value>
   </data>
-  <data name="pLexico.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>6, 0</value>
+  <data name="panelarea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>299, 393</value>
   </data>
-  <data name="pLexico.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>335, 351</value>
+  <data name="pestanas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>298, 379</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lexico.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="lexico.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="lexico.Size" type="System.Drawing.Size, System.Drawing">
     <value>290, 351</value>
   </data>
   <data name="lexico.Text" xml:space="preserve">
     <value>Léxico</value>
   </data>
-  <data name="pSintactico.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>327, 381</value>
+  <data name="pLexico.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 0</value>
+  </data>
+  <data name="pLexico.Size" type="System.Drawing.Size, System.Drawing">
+    <value>335, 351</value>
+  </data>
+  <data name="cNombre.MinimumWidth" type="System.Int32, mscorlib">
+    <value>60</value>
   </data>
   <data name="sintactico.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="sintactico.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="sintactico.Size" type="System.Drawing.Size, System.Drawing">
     <value>290, 351</value>
   </data>
   <data name="sintactico.Text" xml:space="preserve">
     <value>Sintáctico</value>
   </data>
-  <data name="pSemantico.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="pSintactico.Size" type="System.Drawing.Size, System.Drawing">
     <value>327, 381</value>
   </data>
   <data name="semantico.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="semantico.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="semantico.Size" type="System.Drawing.Size, System.Drawing">
     <value>290, 351</value>
   </data>
   <data name="semantico.Text" xml:space="preserve">
     <value>Semántico</value>
   </data>
-  <data name="pestanas.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>298, 379</value>
+  <data name="pSemantico.Size" type="System.Drawing.Size, System.Drawing">
+    <value>327, 381</value>
   </data>
-  <data name="panelarea.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>673, 61</value>
+  <data name="panelResult.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 476</value>
   </data>
-  <data name="panelarea.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>299, 393</value>
+  <data name="panelResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>747, 163</value>
   </data>
-  <data name="txtLog.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>-4, 0</value>
-  </data>
-  <data name="txtLog.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>955, 137</value>
+  <data name="log.Size" type="System.Drawing.Size, System.Drawing">
+    <value>955, 161</value>
   </data>
   <data name="tabLog.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="tabLog.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="tabLog.Size" type="System.Drawing.Size, System.Drawing">
     <value>947, 133</value>
   </data>
   <data name="tabLog.Text" xml:space="preserve">
     <value>Log</value>
   </data>
-  <data name="log.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>955, 161</value>
+  <data name="txtLog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-4, 0</value>
   </data>
-  <data name="panelResult.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>12, 476</value>
+  <data name="txtLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>745, 137</value>
   </data>
-  <data name="panelResult.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>960, 163</value>
-  </data>
-  <data name="txtCode.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>-3, 0</value>
-  </data>
-  <data name="txtCode.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>654, 355</value>
+  <data name="comp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>655, 379</value>
   </data>
   <data name="tabCodigo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="tabCodigo.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="tabCodigo.Size" type="System.Drawing.Size, System.Drawing">
     <value>647, 351</value>
   </data>
   <data name="tabCodigo.Text" xml:space="preserve">
     <value>Código</value>
   </data>
-  <data name="comp.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>655, 379</value>
+  <data name="txtCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-3, 0</value>
   </data>
-  <data name="pCodigo.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="txtCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>654, 355</value>
+  </data>
+  <data name="pCodigo.Size" type="System.Drawing.Size, System.Drawing">
     <value>658, 393</value>
   </data>
-  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-  <data name="btnOpen.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFUSURBVDhPlZK9SgNBFIXnCcQnkLyA4CPkHayFdBY22mqj
@@ -178,13 +177,13 @@
         +/48Y4x9AwxhsnXBwZZBAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnOpen.ImageTransparentColor" type="System.Drawing.Color, System.Drawing.Primitives">
+  <data name="btnOpen.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="btnOpen.Text" xml:space="preserve">
     <value>&amp;Open</value>
   </data>
-  <data name="btnSave.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABzSURBVDhPY/j69WvDt2/f/pODQXoZQIyYCfv+MwTPIQmD
@@ -192,13 +191,13 @@
         hqArRNaMLA7CYANAAGYISIA0/O0/AID67ECmnhNDAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnSave.ImageTransparentColor" type="System.Drawing.Color, System.Drawing.Primitives">
+  <data name="btnSave.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="btnSave.Text" xml:space="preserve">
     <value>&amp;Save</value>
   </data>
-  <data name="btnCut.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCut.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE6SURBVDhPhZI9boNAEIU5Qo6QI+QM9Egp6anDAaho3NiN
@@ -210,13 +209,13 @@
         gg==
 </value>
   </data>
-  <data name="btnCut.ImageTransparentColor" type="System.Drawing.Color, System.Drawing.Primitives">
+  <data name="btnCut.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="btnCut.Text" xml:space="preserve">
     <value>C&amp;ut</value>
   </data>
-  <data name="btnCopy.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCopy.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB4SURBVDhPtc9RCoAgDMbxzuZJAo9pN/KhetkejQWD/HLq
@@ -224,13 +223,13 @@
         iNxzAZgLwP4BsNZFTb5XAOYCcD4DRnWBuahc6R2LWkqXAfkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnCopy.ImageTransparentColor" type="System.Drawing.Color, System.Drawing.Primitives">
+  <data name="btnCopy.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="btnCopy.Text" xml:space="preserve">
     <value>&amp;Copy</value>
   </data>
-  <data name="btnPaste.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnPaste.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACaSURBVDhPvZFBCsMgEEU9Qs/k2TyGe6/RrWdxYRPEbcof
@@ -239,13 +238,19 @@
         J5nBJhUlLbsqAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnPaste.ImageTransparentColor" type="System.Drawing.Color, System.Drawing.Primitives">
+  <data name="btnPaste.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="btnPaste.Text" xml:space="preserve">
     <value>&amp;Paste</value>
   </data>
-  <data name="btnUndo.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>984, 25</value>
+  </data>
+  <data name="tools.Text" xml:space="preserve">
+    <value>Herramientas</value>
+  </data>
+  <data name="btnUndo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAazSURBVFhHvVd7UNRVFCazpjJLM83KLAFZFtiFhd3lsbu8
@@ -280,7 +285,7 @@
         /gBv/2jOrKAfaQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnUndo.ImageTransparentColor" type="System.Drawing.Color, System.Drawing.Primitives">
+  <data name="btnUndo.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="btnUndo.Text" xml:space="preserve">
@@ -289,7 +294,7 @@
   <data name="btnUndo.ToolTipText" xml:space="preserve">
     <value>undo</value>
   </data>
-  <data name="btnRedo.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnRedo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAZISURBVFhH3ZZ5UJR1GMc1tbQSHc1R8wqEXS53udllD1lA
@@ -322,7 +327,7 @@
         vgxsXAEvDv/+X23ChL8AnyBnnZ4uhtcAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnRedo.ImageTransparentColor" type="System.Drawing.Color, System.Drawing.Primitives">
+  <data name="btnRedo.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="btnRedo.Text" xml:space="preserve">
@@ -331,13 +336,16 @@
   <data name="btnRedo.ToolTipText" xml:space="preserve">
     <value>redo</value>
   </data>
-  <data name="tools.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>984, 25</value>
+  <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>984, 24</value>
   </data>
-  <data name="tools.Text" xml:space="preserve">
-    <value>Herramientas</value>
+  <data name="menu.Text" xml:space="preserve">
+    <value>menu</value>
   </data>
-  <data name="opAbrir.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pesArchivo.Text" xml:space="preserve">
+    <value>&amp;Archivo</value>
+  </data>
+  <data name="opAbrir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFUSURBVDhPlZK9SgNBFIXnCcQnkLyA4CPkHayFdBY22mqj
@@ -349,7 +357,7 @@
         +/48Y4x9AwxhsnXBwZZBAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="opAbrir.ImageTransparentColor" type="System.Drawing.Color, System.Drawing.Primitives">
+  <data name="opAbrir.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="opAbrir.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
@@ -358,10 +366,10 @@
   <data name="opAbrir.Text" xml:space="preserve">
     <value>&amp;Abrir</value>
   </data>
-  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 6</value>
   </data>
-  <data name="opSave.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="opSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABzSURBVDhPY/j69WvDt2/f/pODQXoZQIyYCfv+MwTPIQmD
@@ -369,7 +377,7 @@
         hqArRNaMLA7CYANAAGYISIA0/O0/AID67ECmnhNDAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="opSave.ImageTransparentColor" type="System.Drawing.Color, System.Drawing.Primitives">
+  <data name="opSave.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="opSave.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
@@ -384,10 +392,10 @@
   <data name="opExit.Text" xml:space="preserve">
     <value>&amp;Salir</value>
   </data>
-  <data name="pesArchivo.Text" xml:space="preserve">
-    <value>&amp;Archivo</value>
+  <data name="pesEditar.Text" xml:space="preserve">
+    <value>&amp;Editar</value>
   </data>
-  <data name="opCopy.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="opCopy.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB4SURBVDhPtc9RCoAgDMbxzuZJAo9pN/KhetkejQWD/HLq
@@ -395,7 +403,7 @@
         iNxzAZgLwP4BsNZFTb5XAOYCcD4DRnWBuahc6R2LWkqXAfkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="opCopy.ImageTransparentColor" type="System.Drawing.Color, System.Drawing.Primitives">
+  <data name="opCopy.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="opCopy.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
@@ -404,7 +412,7 @@
   <data name="opCopy.Text" xml:space="preserve">
     <value>&amp;Copiar</value>
   </data>
-  <data name="opPaste.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="opPaste.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACaSURBVDhPvZFBCsMgEEU9Qs/k2TyGe6/RrWdxYRPEbcof
@@ -413,7 +421,7 @@
         J5nBJhUlLbsqAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="opPaste.ImageTransparentColor" type="System.Drawing.Color, System.Drawing.Primitives">
+  <data name="opPaste.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="opPaste.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
@@ -422,7 +430,7 @@
   <data name="opPaste.Text" xml:space="preserve">
     <value>&amp;Pegar</value>
   </data>
-  <data name="opCut.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="opCut.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE6SURBVDhPhZI9boNAEIU5Qo6QI+QM9Egp6anDAaho3NiN
@@ -434,7 +442,7 @@
         gg==
 </value>
   </data>
-  <data name="opCut.ImageTransparentColor" type="System.Drawing.Color, System.Drawing.Primitives">
+  <data name="opCut.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="opCut.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
@@ -443,7 +451,7 @@
   <data name="opCut.Text" xml:space="preserve">
     <value>Cort&amp;ar</value>
   </data>
-  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 6</value>
   </data>
   <data name="opUndo.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
@@ -461,19 +469,25 @@
   <data name="opSelectAll.Text" xml:space="preserve">
     <value>Seleccionar &amp;Todo</value>
   </data>
-  <data name="pesEditar.Text" xml:space="preserve">
-    <value>&amp;Editar</value>
+  <data name="btnCompilar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="menu.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>984, 24</value>
+  <data name="btnCompilar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>765, 500</value>
   </data>
-  <data name="menu.Text" xml:space="preserve">
-    <value>menu</value>
+  <data name="btnCompilar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 137</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="btnCompilar.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnCompilar.Text" xml:space="preserve">
+    <value>Compilar</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>984, 661</value>
   </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIAB+zAAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgGAAAAXHKoZgAAgABJ
         REFUeNrsvXe8JMV1L/491d0T7r2bl11YlrTknHNGIIIQQoAkULAkS7KtZOs928/h5/ccnu1nP1myZUUr

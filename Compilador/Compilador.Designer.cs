@@ -214,6 +214,7 @@ namespace ProyCompilador
             // 
             resources.ApplyResources(this.txtLog, "txtLog");
             this.txtLog.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtLog.ForeColor = System.Drawing.Color.Azure;
             this.txtLog.Name = "txtLog";
             // 
             // comp

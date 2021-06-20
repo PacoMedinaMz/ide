@@ -132,8 +132,7 @@ namespace ProyCompilador {
                 int count = parseLine(s);
                 for (int i = 0; i < count; i++) {
                     WPosition wp = TheBuffer[i];
-
-                    if (wp.Word == "/" && previousWord == "/") {
+                    if ((wp.Word == "/" && previousWord == "/") || (previousWord == "/" && wp.Word == "*")) {
                         int posCommentStart = wp.Position - 1;
                         int posCommentEnd = pos2;
                         while (wp.Word != "\n" && i < count) {

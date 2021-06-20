@@ -23,7 +23,41 @@ namespace ProyCompilador {
         private SaveFileDialog sfd;
 
         //--- Sintáctico ---
+        class Token {
+            public string name = "";
+            public string type = "";
 
+            public Token() {
+            }
+
+            public Token(string name, string type) {
+                this.name = name;
+                this.type = type;
+            }
+        }
+        class variable {
+            public string name;
+            public int integer;
+            public float floaat;
+            public string str;
+            public double doubl;
+            public bool bol;
+            public char charachter;
+        }
+        int f = 0;
+        int ct = 0;
+        int fstop = 0;
+        string prevvar;
+        string prevop;
+        string firstvar;
+        int flagoutput = 0;
+        int number = 0;
+        int number2 = 0;
+        string prevtype;
+        string prevtypevar;
+        string vartype;
+        List<variable> Lvar = new List<variable>();
+        List<string> varsize = new List<string>();
         //--- Sintáctico ---
 
 
@@ -200,42 +234,6 @@ namespace ProyCompilador {
             }
             return splitSourceCode;
         }
-
-        class Token {
-            public string name = "";
-            public string type = "";
-
-            public Token() {
-            }
-
-            public Token(string name, string type) {
-                this.name = name;
-                this.type = type;
-            }
-        }
-        class variable {
-            public string name;
-            public int integer;
-            public float floaat;
-            public string str;
-            public double doubl;
-            public bool bol;
-            public char charachter;
-        }
-        int f = 0;
-        int ct = 0;
-        int fstop = 0;
-        string prevvar;
-        string prevop;
-        string firstvar;
-        int flagoutput = 0;
-        int number = 0;
-        int number2 = 0;
-        string prevtype;
-        string prevtypevar;
-        string vartype;
-        List<variable> Lvar = new List<variable>();
-        List<string> varsize = new List<string>();
 
         List<Token> Scanner(List<string> splitCode) {
             List<Token> output = new List<Token>();

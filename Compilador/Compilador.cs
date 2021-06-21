@@ -79,7 +79,7 @@ namespace ProyCompilador {
                 "join", "equals", "using","boolean", "byte", "char", "decimal", "double", "dynamic",
                 "sbyte", "short", "string", "uint", "ulong", "ushort", "var", "class", "struct","sizeof"
                 ,"LinkedList","import","final","package","instanceof","native",
-                "strictfp","super","synchronized","throws","transient","volatile","main"};
+                "strictfp","super","synchronized","throws","transient","volatile","main", "fi", "write", "then", "until"};
 
             using (System.IO.StreamReader sr = new StreamReader(@"..\..\..\RegexLexer.cs")) {
                 lexer.AddTokenRule(@"\s+", "Espacio", true);
@@ -108,7 +108,7 @@ namespace ProyCompilador {
         private void richTextBox1_TextChanged(object sender, EventArgs e) {
             checkCode();
             txtCode.Focus();
-            drawWords();
+            drawWords(false);
         }
 
 
@@ -143,7 +143,119 @@ namespace ProyCompilador {
             return ((testString.Length >= 2) && (testString[0] == '/') && (testString[1] == '/'));
         }
 
-        private void drawWords() {
+        private void appendText(string text, Color color, bool addNewLine = false) {
+            //txtCode.SuspendLayout();
+            txtCode.SelectionColor = color;
+            txtCode.AppendText(addNewLine
+                ? $"{text}{Environment.NewLine}"
+                : text);
+            txtCode.ScrollToCaret();
+            //txtCode.ResumeLayout();
+        }
+
+        private void colorear(int posStart, string frase, Color color) {
+            txtCode.Select(posStart, frase.Length);
+
+
+            txtCode.SelectionColor = color;
+            //txtCode.Select(posFinal, posFinal);
+            //System.Threading.Thread.Sleep(500);
+        }
+
+        private void drawWords(bool allText) {
+            if (allText) {
+                /*if (true) {
+                    
+
+                    int tmp = 0;
+                    for (int i = 0; i < lines.Length; i++) {
+                        string linea = lines[i];
+
+                        for (int j = 0; j < linea.Length; j++) {
+                            char letra = linea[j];
+                            txtCode.Select(tmp + j, 1);
+                            System.Threading.Thread.Sleep(100);
+                        }
+
+                        tmp += linea.Length;
+                    }
+                }*/
+
+                String text = txtCode.Text;
+                //txtCode.Text = "";
+                string[] lines = text.Split(
+                    new[] { "\r\n", "\r", "\n" },
+                    StringSplitOptions.None
+                );
+
+                /*if (true) {
+                    string texto = txtCode.Text;
+                    txtCode.Text = "";
+                    for (int i = 0; i < lines.Length; i++) {
+                        string linea = lines[i];
+
+                        for (int j = 0; j < linea.Length; j++) {
+                            char letra = linea[j];
+
+                            txtCode.Text += letra;
+                            drawWords(false);
+                        }
+
+                        txtCode.Text += "\n";
+                    }
+
+
+                    return;
+                }*/
+
+
+                int caracteresAntes = 0;
+                //txtCode.SuspendLayout();
+                for (int i = 0; i < lines.Length; i++) {
+                    string linea = lines[i];
+                    
+                    string frase = "";
+                    for (int j = 0; j < linea.Length; j++) {
+                        char letra = linea[j];
+
+                        //txtCode.Select(caracteresAntes + j, 1);
+                        //System.Threading.Thread.Sleep(100);
+
+
+                        bool pintar = false;
+                        if (letra == ';' || letra == ' ' || letra == '\n' || letra == '(' || letra == '{') {
+                            frase = "";
+                        } else {
+                            frase += letra;
+                            if (reservadas.Contains(frase)) {
+                                int x = caracteresAntes + j;
+                                int y = frase.Length;
+                                string sdd = txtCode.Text.Substring(x, y);
+                                clog("colorear: " + frase + " (" + x + ", " + y + ") <" + sdd + ">");
+                                colorear(x, frase, Color.Blue);
+
+                                pintar = true;
+                            }
+                        }
+
+                        //txtCode.Select(caracteresAntes + j, 1);
+                        //if (pintar) {
+                            //colorear(caracteresAntes + j, frase, Color.Blue);
+                            //txtCode.Select(caracteresAntes + j, frase.Length);
+                            //System.Threading.Thread.Sleep(100);
+                        //}
+                        
+
+
+                    }
+                    caracteresAntes += linea.Length;
+                }
+
+                //txtCode.ResumeLayout();
+                return;
+            }
+
+
             int Start = txtCode.SelectionStart;
             int Length = txtCode.SelectionLength;
             Color colorComentario = Color.LightGreen;
@@ -240,41 +352,40 @@ namespace ProyCompilador {
             List<string> identifiers = new List<string>(new string[] { "int", "float", "string", "double", "bool", "char" });
             List<string> symbols = new List<string>(new string[] { "+", "-", "/", "%", "*", "(", ")", "{", "}", ",", ";", "&&",
                                                                         "||", "<", ">", "=", "!","++","==",">=","<=","!=" });
-            List<string> reservedWords = new List<string>(new string[] { "for", "while", "if", "do", "return", "break", "continue", "end" });
+            List<string> reservedWords = new List<string>(new string[] { "for", "while", "if", "do", "return", "break", "continue", "end", "program" });
             bool match = false;
 
 
             for (int i = 0; i < splitCode.Count; i++) {
                 if (identifiers.Contains(splitCode[i]) && match == false) {
-                    output.Add(new Token(splitCode[i], "Identificador"));
+                    output.Add(new Token(splitCode[i], "identifier"));
                     match = true;
                 }
                 if (symbols.Contains(splitCode[i]) && match == false) {
-                    output.Add(new Token(splitCode[i], "Símbolo"));
+                    output.Add(new Token(splitCode[i], "symbol"));
                     match = true;
                 }
                 if (reservedWords.Contains(splitCode[i]) && match == false) {
-                    output.Add(new Token(splitCode[i], "Palabra reservada"));
+                    output.Add(new Token(splitCode[i], "reserved word"));
                     match = true;
                 }
                 if (float.TryParse(splitCode[i], out _) && match == false) {
-                    output.Add(new Token(splitCode[i], "Número"));
+                    output.Add(new Token(splitCode[i], "number"));
                     match = true;
                 }
                 if (isValidVar(splitCode[i]) && match == false) {
-
                     variable pnn = new variable();
                     pnn.name = splitCode[i];
                     Lvar.Add(pnn);
-                    output.Add(new Token(splitCode[i], "Variable"));
+                    output.Add(new Token(splitCode[i], "variable"));
                     match = true;
                 }
                 if (splitCode[i].StartsWith("'") && splitCode[i].EndsWith("'") && match == false) {
-                    output.Add(new Token(splitCode[i], "String"));
+                    output.Add(new Token(splitCode[i], "string"));
                     match = true;
                 }
                 if (match == false) {
-                    output.Add(new Token(splitCode[i], "Desconocido"));
+                    output.Add(new Token(splitCode[i], "unknown"));
                 }
                 match = false;
             }
@@ -293,26 +404,39 @@ namespace ProyCompilador {
             }
         }
 
+        public void clog(String str) {
+            pSemantico.Text += "\n" + str;
+        }
+
 
         List<string> SemanticAnalyzer(List<Token> tokens) {
             List<string> errors = new List<string>();
             Token prevInput1 = new Token();
             Token prevInput2 = new Token();
             Token prevInput3 = new Token();
+            Token prevInput4 = new Token();
 
             int selectedRule = 0;
             for (int i = 0; i < tokens.Count; i++) {
                 if (selectedRule == 0) {
                     if (Rule1(tokens[i]).StartsWith("Start")) {
                         selectedRule = 1;
+                        clog("Entre regla 1 <" + tokens[i].name + ", " + tokens[i].type + ">");
                         continue;
                     }
                     if (Rule2(tokens[i]).StartsWith("Start")) {
+                        clog("Entre regla 2 <" + tokens[i].name + ", " + tokens[i].type + ">");
                         selectedRule = 2;
                         continue;
                     }
                     if (Rule3(tokens[i]).StartsWith("Start")) {
+                        clog("Entre regla 3 <" + tokens[i].name + ", " + tokens[i].type + ">");
                         selectedRule = 3;
+                        continue;
+                    }
+                    if (Rule4(tokens[i]).StartsWith("Start")) {
+                        clog("Entre regla 4 <" + tokens[i].name + ", " + tokens[i].type + ">");
+                        selectedRule = 4;
                         continue;
                     }
                 }
@@ -338,6 +462,13 @@ namespace ProyCompilador {
                         selectedRule = 0;
                     }
                 }
+                if (selectedRule == 4) {
+                    var state = Rule4(tokens[i]);
+                    if (state.StartsWith("Ok") || state.StartsWith("Error")) {
+                        errors.Add(state);
+                        selectedRule = 0;
+                    }
+                }
             }
 
             if (selectedRule == 1) {
@@ -348,6 +479,9 @@ namespace ProyCompilador {
             }
             if (selectedRule == 3) {
                 errors.Add(Rule3(new Token()));
+            }
+            if (selectedRule == 4) {
+                errors.Add(Rule4(new Token()));
             }
 
             string Rule1(Token input) {
@@ -392,6 +526,8 @@ namespace ProyCompilador {
 
             string Rule2(Token input) {
                 List<string> operators = new List<string>(new string[] { "+", "-", "/", "%", "*" });
+                List<Int32> memoryint = new List<Int32>();
+
 
                 if (prevInput2.name == "" && input.type == "variable") {
                     prevInput2 = input;
@@ -411,6 +547,7 @@ namespace ProyCompilador {
                     prevInput2 = input;
                     prevtypevar = input.name;
                     if (f == 1) {
+
                         flagoutput = 0;
                         for (int i = 0; i < Lvar.Count; i++) {
                             if (Lvar[i].name == prevInput2.name && flagoutput == 0) {
@@ -424,10 +561,18 @@ namespace ProyCompilador {
                                             break;
                                         }
                                     }
+
                                 }
+
+
                             }
+
                         }
+
+
+
                     }
+
 
                     return "Continue Rule 2";
                 } else if (prevInput2.name == "=" && input.type == "number") {
@@ -435,7 +580,9 @@ namespace ProyCompilador {
                     if (f == 1) {
                         varsize.Add(prevInput2.name);
                         Lvar[ct].integer = Convert.ToInt32(prevInput2.name);
+
                     }
+
 
                     return "Continue Rule 2";
                 } else if (prevInput2.type == "number" && input.name == ";") {
@@ -447,11 +594,13 @@ namespace ProyCompilador {
                         number = Convert.ToInt32(prevInput2.name);
                         number2 = Convert.ToInt32(prevInput2.name);
                         prevtype = prevInput2.type;
+
                     }
                     prevInput2 = input;
 
                     return "Continue Rule 2";
                 } else if (prevInput2.type == "variable" && operators.Contains(input.name)) {
+
                     prevvar = prevInput2.name;
                     vartype = prevInput2.type;
                     fstop = 1;
@@ -459,10 +608,14 @@ namespace ProyCompilador {
                     return "Continue Rule 2";
                 } else if (operators.Contains(prevInput2.name) && input.type == "number") {
                     if (prevInput2.name == "+") {
+
+
                         if (f == 1 && prevtype == "number") {
+
                             Lvar[ct].integer = number + Convert.ToInt32(input.name);
                             varsize.Add(Convert.ToString(Lvar[ct].integer));
                             number2 = Convert.ToInt32(input.name);
+
                         }
                         if (f == 1 && vartype == "variable") {
                             flagoutput = 0;
@@ -470,24 +623,42 @@ namespace ProyCompilador {
                                 if (Lvar[i].name == prevtypevar && flagoutput == 0) {
                                     for (int j = 0; j < Lvar.Count; j++) {
                                         if (Lvar[j].name == firstvar) {
+
                                             Lvar[j].integer = Lvar[i].integer + Convert.ToInt32(input.name);
                                             varsize.Add(Convert.ToString(Lvar[j].integer));
 
                                             flagoutput = 1;
                                             break;
                                         }
+
                                     }
                                     if (flagoutput == 1) {
                                         break;
                                     }
+
+
                                 }
+
                             }
+
                         }
+
+
+
+
+
                     }
                     if (prevInput2.name == "-") {
+
+
                         if (f == 1 && prevtype == "number") {
+
                             Lvar[ct].integer = number - Convert.ToInt32(input.name);
                             varsize.Add(Convert.ToString(Lvar[ct].integer));
+
+
+
+
                         }
 
                         if (f == 1 && vartype == "variable") {
@@ -496,25 +667,40 @@ namespace ProyCompilador {
                                 if (Lvar[i].name == prevtypevar && flagoutput == 0) {
                                     for (int j = 0; j < Lvar.Count; j++) {
                                         if (Lvar[j].name == firstvar) {
+
                                             Lvar[j].integer = Lvar[i].integer - Convert.ToInt32(input.name);
                                             varsize.Add(Convert.ToString(Lvar[j].integer));
 
                                             flagoutput = 1;
                                             break;
                                         }
+
                                     }
                                     if (flagoutput == 1) {
                                         break;
                                     }
+
+
                                 }
+
                             }
+
                         }
+
+
                     }
                     if (prevInput2.name == "*") {
+
+
+
+
+
                         if (f == 1 && prevtype == "number") {
+
                             Lvar[ct].integer = number * Convert.ToInt32(input.name);
                             varsize.Add(Convert.ToString(Lvar[ct].integer));
                             number2 = Convert.ToInt32(input.name);
+
                         }
                         if (f == 1 && vartype == "variable") {
                             flagoutput = 0;
@@ -522,49 +708,76 @@ namespace ProyCompilador {
                                 if (Lvar[i].name == prevtypevar && flagoutput == 0) {
                                     for (int j = 0; j < Lvar.Count; j++) {
                                         if (Lvar[j].name == firstvar) {
+
                                             Lvar[j].integer = Lvar[i].integer * Convert.ToInt32(input.name);
                                             varsize.Add(Convert.ToString(Lvar[j].integer));
 
                                             flagoutput = 1;
                                             break;
                                         }
+
                                     }
                                     if (flagoutput == 1) {
                                         break;
                                     }
+
+
                                 }
                             }
                         }
+
+
                     }
                     if (prevInput2.name == "/") {
+
+
                         if (f == 1 && prevtype == "number") {
+
                             Lvar[ct].integer = number / Convert.ToInt32(input.name);
                             varsize.Add(Convert.ToString(Lvar[ct].integer));
+
+
+
+
                         }
                         if (f == 1 && vartype == "variable") {
+
                             flagoutput = 0;
                             for (int i = 0; i < Lvar.Count; i++) {
                                 if (Lvar[i].name == prevtypevar && flagoutput == 0) {
                                     for (int j = 0; j < Lvar.Count; j++) {
                                         if (Lvar[j].name == firstvar) {
+
                                             Lvar[j].integer = Lvar[i].integer / Convert.ToInt32(input.name);
                                             varsize.Add(Convert.ToString(Lvar[j].integer));
 
                                             flagoutput = 1;
                                             break;
                                         }
+
                                     }
                                     if (flagoutput == 1) {
                                         break;
                                     }
+
+
                                 }
+
                             }
                         }
+
                     }
                     if (prevInput2.name == "%") {
+
+
                         if (f == 1 && prevtype == "number") {
+
                             Lvar[ct].integer = number % Convert.ToInt32(input.name);
                             varsize.Add(Convert.ToString(Lvar[ct].integer));
+
+
+
+
                         }
                         if (f == 1 && vartype == "variable") {
                             flagoutput = 0;
@@ -572,34 +785,51 @@ namespace ProyCompilador {
                                 if (Lvar[i].name == prevtypevar && flagoutput == 0) {
                                     for (int j = 0; j < Lvar.Count; j++) {
                                         if (Lvar[j].name == firstvar) {
+
                                             Lvar[j].integer = Lvar[i].integer % Convert.ToInt32(input.name);
                                             varsize.Add(Convert.ToString(Lvar[j].integer));
 
                                             flagoutput = 1;
                                             break;
                                         }
+
                                     }
                                     if (flagoutput == 1) {
                                         break;
                                     }
+
+
                                 }
+
                             }
                         }
+
                     }
 
                     prevInput2 = input;
+
+
+
+
+
                     return "Continue Rule 2";
                 } else if (operators.Contains(prevInput2.name) && input.type == "variable") {
+
                     if (prevInput2.name == "+") {
+
+
                         fstop = 0;
 
                         if (f == 1 && prevtype == "number") {
+
+
                             for (int i = 0; i < Lvar.Count; i++) {
                                 if (Lvar[i].name == input.name) {
                                     for (int j = 0; j < Lvar.Count; j++) {
                                         if (Lvar[j].name == firstvar) {
                                             if (fstop == 0) {
                                                 Lvar[j].integer = number2 + Lvar[i].integer;
+
 
                                                 flagoutput = 1;
                                                 break;
@@ -611,16 +841,20 @@ namespace ProyCompilador {
                                     }
                                 }
                             }
+
                         }
 
                         if (f == 1 && vartype == "variable") {
                             flagoutput = 0;
+
+
                             for (int i = 0; i < Lvar.Count; i++) {
                                 if (Lvar[i].name == input.name && flagoutput == 0) {
                                     for (int j = 0; j < Lvar.Count; j++) {
                                         if (Lvar[j].name == prevvar) {
                                             for (int k = 0; k < Lvar.Count; k++) {
                                                 if (firstvar == Lvar[k].name) {
+
                                                     Lvar[k].integer = Lvar[j].integer + Lvar[i].integer;
                                                     varsize.Add(Convert.ToString(Lvar[k].integer));
 
@@ -632,24 +866,33 @@ namespace ProyCompilador {
                                         if (flagoutput == 1) {
                                             break;
                                         }
+
                                     }
                                     if (flagoutput == 1) {
                                         break;
                                     }
+
                                 }
+
                             }
+
                         }
+
+
                     }
                     if (prevInput2.name == "-") {
                         fstop = 0;
 
                         if (f == 1 && prevtype == "number") {
+
+
                             for (int i = 0; i < Lvar.Count; i++) {
                                 if (Lvar[i].name == input.name) {
                                     for (int j = 0; j < Lvar.Count; j++) {
                                         if (Lvar[j].name == firstvar) {
                                             if (fstop == 0) {
                                                 Lvar[j].integer = number2 - Lvar[i].integer;
+
 
                                                 flagoutput = 1;
                                                 break;
@@ -661,7 +904,9 @@ namespace ProyCompilador {
                                     }
                                 }
                             }
+
                         }
+
 
                         if (f == 1 && vartype == "variable") {
                             flagoutput = 0;
@@ -671,6 +916,7 @@ namespace ProyCompilador {
                                         if (Lvar[j].name == prevvar) {
                                             for (int k = 0; k < Lvar.Count; k++) {
                                                 if (firstvar == Lvar[k].name) {
+
                                                     Lvar[k].integer = Lvar[j].integer - Lvar[i].integer;
                                                     varsize.Add(Convert.ToString(Lvar[k].integer));
 
@@ -687,20 +933,28 @@ namespace ProyCompilador {
                                     if (flagoutput == 1) {
                                         break;
                                     }
+
+
                                 }
+
                             }
                         }
+
+
                     }
                     if (prevInput2.name == "*") {
                         fstop = 0;
 
                         if (f == 1 && prevtype == "number") {
+
+
                             for (int i = 0; i < Lvar.Count; i++) {
                                 if (Lvar[i].name == input.name) {
                                     for (int j = 0; j < Lvar.Count; j++) {
                                         if (Lvar[j].name == firstvar) {
                                             if (fstop == 0) {
                                                 Lvar[j].integer = number2 * Lvar[i].integer;
+
 
                                                 flagoutput = 1;
                                                 break;
@@ -712,6 +966,7 @@ namespace ProyCompilador {
                                     }
                                 }
                             }
+
                         }
 
                         if (f == 1 && vartype == "variable") {
@@ -722,6 +977,7 @@ namespace ProyCompilador {
                                         if (Lvar[j].name == prevvar) {
                                             for (int k = 0; k < Lvar.Count; k++) {
                                                 if (firstvar == Lvar[k].name) {
+
                                                     Lvar[k].integer = Lvar[j].integer * Lvar[i].integer;
                                                     varsize.Add(Convert.ToString(Lvar[k].integer));
 
@@ -733,25 +989,32 @@ namespace ProyCompilador {
                                         if (flagoutput == 1) {
                                             break;
                                         }
+
                                     }
 
                                     if (flagoutput == 1) {
                                         break;
                                     }
                                 }
+
                             }
                         }
-                    }
 
+
+                    }
                     if (prevInput2.name == "/") {
                         fstop = 0;
+
                         if (f == 1 && prevtype == "number") {
+
+
                             for (int i = 0; i < Lvar.Count; i++) {
                                 if (Lvar[i].name == input.name) {
                                     for (int j = 0; j < Lvar.Count; j++) {
                                         if (Lvar[j].name == firstvar) {
                                             if (fstop == 0) {
                                                 Lvar[j].integer = number2 / Lvar[i].integer;
+
 
                                                 flagoutput = 1;
                                                 break;
@@ -763,6 +1026,7 @@ namespace ProyCompilador {
                                     }
                                 }
                             }
+
                         }
 
                         if (f == 1 && vartype == "variable") {
@@ -773,6 +1037,7 @@ namespace ProyCompilador {
                                         if (Lvar[j].name == prevvar) {
                                             for (int k = 0; k < Lvar.Count; k++) {
                                                 if (firstvar == Lvar[k].name) {
+
                                                     Lvar[k].integer = Lvar[j].integer / Lvar[i].integer;
                                                     varsize.Add(Convert.ToString(Lvar[k].integer));
 
@@ -784,17 +1049,25 @@ namespace ProyCompilador {
                                         if (flagoutput == 1) {
                                             break;
                                         }
+
                                     }
                                     if (flagoutput == 1) {
                                         break;
                                     }
+
                                 }
+
                             }
                         }
+
+
                     }
                     if (prevInput2.name == "%") {
                         fstop = 0;
+
                         if (f == 1 && prevtype == "number") {
+
+
                             for (int i = 0; i < Lvar.Count; i++) {
                                 if (Lvar[i].name == input.name) {
                                     for (int j = 0; j < Lvar.Count; j++) {
@@ -812,6 +1085,7 @@ namespace ProyCompilador {
                                     }
                                 }
                             }
+
                         }
 
                         if (f == 1 && vartype == "variable") {
@@ -822,6 +1096,7 @@ namespace ProyCompilador {
                                         if (Lvar[j].name == prevvar) {
                                             for (int k = 0; k < Lvar.Count; k++) {
                                                 if (firstvar == Lvar[k].name) {
+
                                                     Lvar[k].integer = Lvar[j].integer % Lvar[i].integer;
                                                     varsize.Add(Convert.ToString(Lvar[k].integer));
 
@@ -833,38 +1108,44 @@ namespace ProyCompilador {
                                         if (flagoutput == 1) {
                                             break;
                                         }
+
                                     }
                                     if (flagoutput == 1) {
                                         break;
                                     }
+
                                 }
+
                             }
                         }
+
+
                     }
 
                     prevInput2 = input;
+
                     return "Continue Rule 2";
                 }
 
                 if (prevInput2.type == "variable") {
                     prevInput2 = new Token();
-                    return "Error Expected ';' Or '='";
+                    return "Error Expected ';' Or '=' Rule 2";
                 }
                 if (prevInput2.name == "=") {
                     prevInput2 = new Token();
-                    return "Error Expected 'number' Or 'variable'";
+                    return "Error Expected 'number' Or 'variable' Rule 2";
                 }
                 if (prevInput2.type == "variable") {
                     prevInput2 = new Token();
-                    return "Error Expected ';' Or 'operator'";
+                    return "Error Expected ';' Or 'operator' Rule 2";
                 }
                 if (prevInput2.type == "number") {
                     prevInput2 = new Token();
-                    return "Error Expected ';' Or 'operator'";
+                    return "Error Expected ';' Or 'operator' Rule 2";
                 }
                 if (operators.Contains(prevInput2.name)) {
                     prevInput2 = new Token();
-                    return "Error Expected 'number' Or 'variable'";
+                    return "Error Expected 'number' Or 'variable' Rule 2";
                 }
                 prevInput2 = new Token();
                 return "Error Rule 2";
@@ -953,6 +1234,45 @@ namespace ProyCompilador {
                 prevInput3 = new Token();
                 return "Error Rule 3";
             }
+
+            string Rule4(Token input) {
+                List<string> comp_operators = new List<string>(new string[] { "==", "!=", "<=", "<", ">", ">=" });
+                List<string> bool_operators = new List<string>(new string[] { "&&", "||" });
+                if (prevInput4.name == "" && input.name == "program") {
+                    prevInput4 = input;
+                    return "Start Rule 4";
+                } else if (prevInput4.name == "program" && input.name == "{") {
+                    prevInput4 = input;
+                    return "Continue Rule 4";
+                } else if (prevInput4.name == "{" && input.name == "identifier") {
+                    return "Continue Rule 4";
+                } else if (prevInput4.type == "identifier") {
+                    string state = Rule1(input);
+                    if (state.StartsWith("Ok")) {
+                        prevInput4 = new Token();
+                    }
+                    if (state != "Error Rule 1") {
+                        return state.Substring(0, state.IndexOf("Rule 1") - 1) + " Rule 4";
+                    }
+                } else if (prevInput4.name == "{" && input.name == "}") {
+                    prevInput4 = new Token();
+                    return "Ok Rule 4";
+                } else if (prevInput4.name == "{" && input.name != "") {
+                    return "Continue Rule 4";
+                }
+
+                if (prevInput4.name == "program") {
+                    prevInput4 = new Token();
+                    return "Error Expected '{'";
+                }
+                if (prevInput4.name == "{") {
+                    prevInput4 = new Token();
+                    return "Error Expected '}'";
+                }
+
+                prevInput4 = new Token();
+                return "Error Rule 4";
+            }
             return errors;
         }
         //-------------------------------------------  AnalizadorSemántico  FIN -------------------------------------------------------------
@@ -990,7 +1310,7 @@ namespace ProyCompilador {
 
             checkCode();
             txtCode.Focus();
-            drawWords();
+            drawWords(true);
         }
 
         private void savefile() {
@@ -1066,6 +1386,7 @@ namespace ProyCompilador {
 
         private void paste(int position) {
             this.txtCode.Text = this.txtCode.Text.Insert(position, Clipboard.GetText());
+            drawWords(true);
         }
 
         private void cut() {

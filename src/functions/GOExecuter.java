@@ -15,19 +15,19 @@ import org.json.simple.parser.ContainerFactory;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class ejecutadorGO {
+public class GOExecuter {
 
     private String outputE;
     private String outputLexico;
     private String outputSintac;
     private String outputSemant;
     private String outputCodigo;
-    funciones f;
-    private static filesAdmin fa;
+    ExtraUtils f;
+    private static AdminConfig fa;
 
-    public ejecutadorGO() {
-        fa = new filesAdmin();
-        f = new funciones();
+    public GOExecuter() {
+        fa = new AdminConfig();
+        f = new ExtraUtils();
         outputE = "";
         outputSemant = "";
         outputLexico = "";
@@ -42,14 +42,14 @@ public class ejecutadorGO {
         try {
             executeCommand("go env -w GO111MODULE=off");
         } catch (Exception ex) {
-            Logger.getLogger(ejecutadorGO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GOExecuter.class.getName()).log(Level.SEVERE, null, ex);
             salidaE("ConexionException : " + ex.getMessage());
         }
 
         try {
             executeCommand("go run compiladorSintactico//main.go auxiliar.txt");
         } catch (Exception ex) {
-            Logger.getLogger(ejecutadorGO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GOExecuter.class.getName()).log(Level.SEVERE, null, ex);
             salidaE("ConexionException : " + ex.getMessage());
         }
 

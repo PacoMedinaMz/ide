@@ -20,11 +20,11 @@
         "Token renglón 6 columna 13: if",
         "Token renglón 6 columna 14: (",
         "Token renglón 6 columna 16: x",
-        "Token renglón 6 columna 19: <",
-        "Token renglón 6 columna 22: y",
-        "Token renglón 6 columna 23: )",
-        "Token renglón 6 columna 29: then",
-        "Token renglón 6 columna 30: {",
+        "Token renglón 6 columna 18: <",
+        "Token renglón 6 columna 20: y",
+        "Token renglón 6 columna 21: )",
+        "Token renglón 6 columna 27: then",
+        "Token renglón 6 columna 28: {",
         "Token renglón 7 columna 17: y",
         "Token renglón 7 columna 19: =",
         "Token renglón 7 columna 21: y",
@@ -65,11 +65,11 @@
         "Match: if (6,13)",
         "Match: ( (6,14)",
         "Match: x (6,16)",
-        "Match: < (6,19)",
-        "Match: y (6,22)",
-        "Match: ) (6,23)",
-        "Match: then (6,29)",
-        "Match: { (6,30)",
+        "Match: < (6,18)",
+        "Match: y (6,20)",
+        "Match: ) (6,21)",
+        "Match: then (6,27)",
+        "Match: { (6,28)",
         "Match: y (7,17)",
         "Match: = (7,19)",
         "Match: y (7,21)",
@@ -89,8 +89,8 @@
         "Match: } (10,1)"
     ],
     "Semantico": [
-        "Agregado simbolo: y",
-        "Agregado simbolo: x",
+        "Agregado simbolos: y",
+        "Agregado simbolos: x",
         "Tabla modificada: x -> 0",
         "Tabla modificada: y -> 4",
         "Tabla modificada: y -> 3"
@@ -223,7 +223,7 @@
                                 "TypeLexema": 21,
                                 "Lexema": "<",
                                 "NumFila": 6,
-                                "NumCol": 19
+                                "NumCol": 18
                             },
                             "Dtype": 0,
                             "Izquierda": {
@@ -241,7 +241,7 @@
                                     "TypeLexema": 35,
                                     "Lexema": "y",
                                     "NumFila": 6,
-                                    "NumCol": 22
+                                    "NumCol": 20
                                 },
                                 "Dtype": 0,
                                 "Name": "4"

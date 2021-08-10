@@ -40,7 +40,7 @@ func declaraciones(nodo *d.Nodo){
 			TSimbolos[nodo.TokenType.Lexema] = d.Simbolo{Dtype: currentType, Valor: "0"}
 			nodo.Dtype = currentType
 			//fmt.Println("Agregado a tabla de simbolos: " + nodo.TokenType.Lexema)
-			lm.AgregarSemantico("Agregado simbolo: " + nodo.TokenType.Lexema)
+			lm.AgregarSemantico("Agregado simbolos: " + nodo.TokenType.Lexema)
 		}
 		if(nodo.Bro != nil){
 			declaraciones(nodo.Bro)

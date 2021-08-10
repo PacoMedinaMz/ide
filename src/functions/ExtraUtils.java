@@ -10,29 +10,29 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author srhaz
+ * @author rmaafs
  */
-public class funciones {
+public class ExtraUtils {
 
-    public funciones() {
+    public ExtraUtils() {
     }
-    
+
     // nos da la hora del momento en que se llama a la funcion [ HH : mm : ss ] 
-    public String obtenerHora(){
+    public String obtenerHora() {
         String tiempo;
         int hora, minutos, segundos;
         Calendar calendario = new GregorianCalendar();
-        hora =calendario.get(Calendar.HOUR_OF_DAY);
+        hora = calendario.get(Calendar.HOUR_OF_DAY);
         minutos = calendario.get(Calendar.MINUTE);
         segundos = calendario.get(Calendar.SECOND);
-        
-        tiempo = " [ "+hora+" : "+minutos+" : "+segundos+" ]";
-        
+
+        tiempo = " [ " + hora + " : " + minutos + " : " + segundos + " ]";
+
         return tiempo;
     }
-    
-    public int porcentaje(int cantidad, int porcentaje){
-        float x = (cantidad*porcentaje)/100;
+
+    public int porcentaje(int cantidad, int porcentaje) {
+        float x = (cantidad * porcentaje) / 100;
         int y = Math.round(x);
         return y;
     }

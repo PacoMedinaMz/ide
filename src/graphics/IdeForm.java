@@ -1,8 +1,8 @@
 package graphics;
 
-import functions.ejecutadorGO;
-import functions.filesAdmin;
-import functions.funciones;
+import functions.GOExecuter;
+import functions.AdminConfig;
+import functions.ExtraUtils;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -37,9 +37,9 @@ import javax.swing.text.StyleConstants;
 
 /**
  *
- * @author srhaz
+ * @author rmaafs
  */
-public class PotatoFrame {
+public class IdeForm {
 
     private static int hei;
     private static int wid;
@@ -57,7 +57,7 @@ public class PotatoFrame {
     private static Color back_Color;
     private static boolean EditedFile;
     private static int cursorPosition;
-    private static filesAdmin fa = new filesAdmin();
+    private static AdminConfig fa = new AdminConfig();
     // variables de texto de paneles
     private static String lexicoTxt;
     private static String sintacticoTxt;
@@ -67,7 +67,7 @@ public class PotatoFrame {
     private static ArrayList<String> palabrasReservadas = new ArrayList();//
 
     //contructor
-    public PotatoFrame() {
+    public IdeForm() {
         palabrasReservadas.add("program");
         palabrasReservadas.add("if");
         palabrasReservadas.add("else");
@@ -104,7 +104,7 @@ public class PotatoFrame {
     }
 
     //contructor con argumentos
-    public PotatoFrame(String font, Color text, Color identifier, Color background, int textSize, int analizerSize, int errorsSize) {
+    public IdeForm(String font, Color text, Color identifier, Color background, int textSize, int analizerSize, int errorsSize) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         hei = screenSize.height; // 1080
         wid = screenSize.width;  // 1920
@@ -141,7 +141,7 @@ public class PotatoFrame {
 
     //crear el panel principal
     private static JPanel crearPanelP() {
-        funciones f = new funciones();
+        ExtraUtils f = new ExtraUtils();
         int paddingWID = f.porcentaje(wid, 1);
         int paddingHEI = f.porcentaje(hei, 3);
 
@@ -182,11 +182,11 @@ public class PotatoFrame {
             @Override
             public void keyReleased(KeyEvent e) {
                 codeArea.setEditable(false);
-                paintText paint = new paintText();
+                TextFormatter paint = new TextFormatter();
                 Document doc = codeArea.getDocument();
                 ArrayList<String> textoSeparado;
                 try {
-                    if (paintText.checkKeyValid(e.getKeyCode())) {
+                    if (TextFormatter.checkKeyValid(e.getKeyCode())) {
                         textoSeparado = paint.separarTexto(doc.getText(0, doc.getLength()));
                         codeArea.setText("");
                         textoSeparado.stream().forEach((palabra) -> {
@@ -194,7 +194,7 @@ public class PotatoFrame {
                         });
                     }
                 } catch (BadLocationException ex) {
-                    Logger.getLogger(PotatoFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(IdeForm.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 codeArea.setEditable(true);
             }
@@ -204,7 +204,7 @@ public class PotatoFrame {
                     @Override
                     public void run() {
                         SimpleAttributeSet attrs = new SimpleAttributeSet();
-                        if (paintText.checkString(palabra)) {
+                        if (TextFormatter.checkString(palabra)) {
                             StyleConstants.setForeground(attrs, Color.BLUE);
                         } else {
                             StyleConstants.setForeground(attrs, Color.BLACK);
@@ -212,7 +212,7 @@ public class PotatoFrame {
                         try {
                             codeArea.getStyledDocument().insertString(codeArea.getStyledDocument().getLength(), palabra, attrs);
                         } catch (BadLocationException ex) {
-                            Logger.getLogger(PotatoFrame.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(IdeForm.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 };
@@ -353,12 +353,12 @@ public class PotatoFrame {
 
                     System.out.println(textoCompleto);
                     codeArea.setText("");
-                    paintText paint = new paintText();
+                    TextFormatter paint = new TextFormatter();
                     ArrayList<String> textoSeparado;
                     textoSeparado = paint.separarTexto(textoCompleto);
                     textoSeparado.stream().forEach((palabra) -> {
                         SimpleAttributeSet attrs = new SimpleAttributeSet();
-                        if (paintText.checkString(palabra)) {
+                        if (TextFormatter.checkString(palabra)) {
                             StyleConstants.setForeground(attrs, Color.BLUE);
                         } else {
                             StyleConstants.setForeground(attrs, Color.BLACK);
@@ -366,7 +366,7 @@ public class PotatoFrame {
                         try {
                             codeArea.getStyledDocument().insertString(codeArea.getStyledDocument().getLength(), palabra, attrs);
                         } catch (BadLocationException ex) {
-                            Logger.getLogger(PotatoFrame.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(IdeForm.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     });
 
@@ -474,7 +474,7 @@ public class PotatoFrame {
                 b.setForeground(Color.BLUE);
                 b.addActionListener((ActionEvent e) -> {                                /////// agregar codigo de ActionListener
                     if (prerevisionCodigoPanel()) {
-                        ejecutadorGO x = new ejecutadorGO();
+                        GOExecuter x = new GOExecuter();
                         errorsArea.setText(x.conexion());
                         lexicoTxt = x.getOutputLexico();
                         sintacticoTxt = x.getOutputSintac();

@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package potato;
+package ide;
 
-import graphics.PotatoFrame;
+import graphics.IdeForm;
 
 
 
-public class Potato {
+public class IDE {
     
     public static void main(String[] args) {
-        PotatoFrame potatoIDE = new PotatoFrame();
+        IdeForm potatoIDE = new IdeForm();
         potatoIDE.mostrarFrame();
     }
     

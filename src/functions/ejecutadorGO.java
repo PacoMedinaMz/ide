@@ -1,11 +1,14 @@
 package functions;
 
-import java.io.IOException;
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.parser.ContainerFactory;
@@ -34,12 +37,17 @@ public class ejecutadorGO {
 
     public String conexion() {
         ProcessBuilder pB = new ProcessBuilder();
-
         //Ejecutar y guardar Lexico del codigo
-        pB.command("cmd.exe", "/c", "go run compiladorSintactico//main.go auxiliar.txt");
         try {
-            pB.start().waitFor();
-        } catch (InterruptedException | IOException ex) {
+            executeCommand("go env -w GO111MODULE=off");
+        } catch (Exception ex) {
+            Logger.getLogger(ejecutadorGO.class.getName()).log(Level.SEVERE, null, ex);
+            salidaE("ConexionException : " + ex.getMessage());
+        }
+
+        try {
+            executeCommand("go run compiladorSintactico//main.go auxiliar.txt");
+        } catch (Exception ex) {
             Logger.getLogger(ejecutadorGO.class.getName()).log(Level.SEVERE, null, ex);
             salidaE("ConexionException : " + ex.getMessage());
         }
@@ -112,6 +120,36 @@ public class ejecutadorGO {
 
         salida("\nCódigo comprobado.");
         return outputE;
+    }
+
+    private void executeCommand(String command) {
+        try {
+            log(command);
+            Process process = Runtime.getRuntime().exec("cmd.exe /c " + command);
+            logOutput(process.getInputStream(), "");
+            logOutput(process.getErrorStream(), "Error: ");
+            process.waitFor();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void logOutput(InputStream inputStream, String prefix) {
+        new Thread(() -> {
+            Scanner scanner = new Scanner(inputStream, "UTF-8");
+            while (scanner.hasNextLine()) {
+                synchronized (this) {
+                    log(prefix + scanner.nextLine());
+                }
+            }
+            scanner.close();
+        }).start();
+    }
+
+    private static SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss:SSS");
+
+    private synchronized void log(String message) {
+        System.out.println(format.format(new Date()) + ": " + message);
     }
 
     private void salidaE(String x) {

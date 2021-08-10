@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"strings"
 
-	d "X/definiciones"
+	d "../definiciones"
 )
 
 type log struct {

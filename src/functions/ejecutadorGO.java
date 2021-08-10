@@ -36,6 +36,7 @@ public class ejecutadorGO {
     }
 
     public String conexion() {
+        salida("\nCompilando...");
         ProcessBuilder pB = new ProcessBuilder();
         //Ejecutar y guardar Lexico del codigo
         try {

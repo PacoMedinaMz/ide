@@ -21,10 +21,10 @@ var nFila int = 1
 
 func loggers(token d.Token) {
 	if token.TypeLexema == tt.Error {
-		logger.AgregarError("Token no identificado (" + strconv.Itoa(token.NumFila) + "," + strconv.Itoa(token.NumCol) + "): " + token.Lexema)
+		logger.AgregarError("Token no identificado en (" + strconv.Itoa(token.NumFila) + "," + strconv.Itoa(token.NumCol) + "): " + token.Lexema)
 		//fmt.Println("Token no identificado (" + strconv.Itoa(token.Row) + "," + strconv.Itoa(token.Col) + "): " + token.Lexema)
 	} else {
-		logger.AgregarLexico("Token (" + strconv.Itoa(token.NumFila) + "," + strconv.Itoa(token.NumCol) + "): " + token.Lexema)
+		logger.AgregarLexico("Token renglón " + strconv.Itoa(token.NumFila) + " columna " + strconv.Itoa(token.NumCol) + ": " + token.Lexema)
 		//fmt.Println("Token (" + strconv.Itoa(row) + "," + strconv.Itoa(index) + "): " + token.Lexema)
 	}
 }

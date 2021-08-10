@@ -1,48 +1,48 @@
 {
     "Lexico": [
-        "Token (1,8): program",
-        "Token (1,10): {",
-        "Token (2,9): int",
-        "Token (2,12): x",
-        "Token (2,13): ,",
-        "Token (2,16): y",
-        "Token (2,17): ;",
-        "Token (3,7): x",
-        "Token (3,9): =",
-        "Token (3,11): 0",
-        "Token (3,12): ;",
-        "Token (4,7): y",
-        "Token (4,9): =",
-        "Token (4,11): 4",
-        "Token (4,12): ;",
-        "Token (5,8): do",
-        "Token (5,10): {",
-        "Token (6,13): if",
-        "Token (6,14): (",
-        "Token (6,16): x",
-        "Token (6,18): <",
-        "Token (6,20): y",
-        "Token (6,21): )",
-        "Token (6,27): then",
-        "Token (6,28): {",
-        "Token (7,17): y",
-        "Token (7,19): =",
-        "Token (7,21): y",
-        "Token (7,22): -",
-        "Token (7,24): 1",
-        "Token (7,25): ;",
-        "Token (8,11): }",
-        "Token (8,15): fi",
-        "Token (9,6): }",
-        "Token (9,13): until",
-        "Token (9,14): (",
-        "Token (9,16): y",
-        "Token (9,18): >=",
-        "Token (9,20): 0",
-        "Token (9,21): )",
-        "Token (9,22): ;",
-        "Token (10,1): }",
-        "Token (11,0): EOF"
+        "Token renglón 1 columna 8: program",
+        "Token renglón 1 columna 10: {",
+        "Token renglón 2 columna 9: int",
+        "Token renglón 2 columna 12: x",
+        "Token renglón 2 columna 13: ,",
+        "Token renglón 2 columna 16: y",
+        "Token renglón 2 columna 17: ;",
+        "Token renglón 3 columna 7: x",
+        "Token renglón 3 columna 9: =",
+        "Token renglón 3 columna 11: 0",
+        "Token renglón 3 columna 12: ;",
+        "Token renglón 4 columna 7: y",
+        "Token renglón 4 columna 9: =",
+        "Token renglón 4 columna 11: 4",
+        "Token renglón 4 columna 12: ;",
+        "Token renglón 5 columna 8: do",
+        "Token renglón 5 columna 10: {",
+        "Token renglón 6 columna 13: if",
+        "Token renglón 6 columna 14: (",
+        "Token renglón 6 columna 16: x",
+        "Token renglón 6 columna 19: <",
+        "Token renglón 6 columna 22: y",
+        "Token renglón 6 columna 23: )",
+        "Token renglón 6 columna 29: then",
+        "Token renglón 6 columna 30: {",
+        "Token renglón 7 columna 17: y",
+        "Token renglón 7 columna 19: =",
+        "Token renglón 7 columna 21: y",
+        "Token renglón 7 columna 22: -",
+        "Token renglón 7 columna 24: 1",
+        "Token renglón 7 columna 25: ;",
+        "Token renglón 8 columna 11: }",
+        "Token renglón 8 columna 15: fi",
+        "Token renglón 9 columna 6: }",
+        "Token renglón 9 columna 13: until",
+        "Token renglón 9 columna 14: (",
+        "Token renglón 9 columna 16: y",
+        "Token renglón 9 columna 18: >=",
+        "Token renglón 9 columna 20: 0",
+        "Token renglón 9 columna 21: )",
+        "Token renglón 9 columna 22: ;",
+        "Token renglón 10 columna 1: }",
+        "Token renglón 11 columna 0: EOF"
     ],
     "Sintactico": [
         "Match: program (1,8)",
@@ -65,11 +65,11 @@
         "Match: if (6,13)",
         "Match: ( (6,14)",
         "Match: x (6,16)",
-        "Match: < (6,18)",
-        "Match: y (6,20)",
-        "Match: ) (6,21)",
-        "Match: then (6,27)",
-        "Match: { (6,28)",
+        "Match: < (6,19)",
+        "Match: y (6,22)",
+        "Match: ) (6,23)",
+        "Match: then (6,29)",
+        "Match: { (6,30)",
         "Match: y (7,17)",
         "Match: = (7,19)",
         "Match: y (7,21)",
@@ -89,8 +89,8 @@
         "Match: } (10,1)"
     ],
     "Semantico": [
-        "Agregado a tabla de simbolos: y",
-        "Agregado a tabla de simbolos: x",
+        "Agregado simbolo: y",
+        "Agregado simbolo: x",
         "Tabla modificada: x -> 0",
         "Tabla modificada: y -> 4",
         "Tabla modificada: y -> 3"
@@ -114,31 +114,31 @@
         "(halt,_,_,_)"
     ],
     "Tree": {
-        "TokenType": {
+        "Tipo": {
             "TypeLexema": 1,
             "Lexema": "program",
             "NumFila": 1,
             "NumCol": 8
         },
         "Dtype": 0,
-        "Izq": {
-            "TokenType": {
+        "Izquierda": {
+            "Tipo": {
                 "TypeLexema": 11,
                 "Lexema": "int",
                 "NumFila": 2,
                 "NumCol": 9
             },
             "Dtype": 11,
-            "Med": {
-                "TokenType": {
+            "Medio": {
+                "Tipo": {
                     "TypeLexema": 35,
                     "Lexema": "x",
                     "NumFila": 2,
                     "NumCol": 12
                 },
                 "Dtype": 11,
-                "Med": {
-                    "TokenType": {
+                "Medio": {
+                    "Tipo": {
                         "TypeLexema": 35,
                         "Lexema": "y",
                         "NumFila": 2,
@@ -148,16 +148,16 @@
                 }
             }
         },
-        "Der": {
-            "TokenType": {
+        "Derecha": {
+            "Tipo": {
                 "TypeLexema": 27,
                 "Lexema": "=",
                 "NumFila": 3,
                 "NumCol": 9
             },
             "Dtype": 11,
-            "Izq": {
-                "TokenType": {
+            "Izquierda": {
+                "Tipo": {
                     "TypeLexema": 35,
                     "Lexema": "x",
                     "NumFila": 3,
@@ -165,8 +165,8 @@
                 },
                 "Dtype": 11
             },
-            "Der": {
-                "TokenType": {
+            "Derecha": {
+                "Tipo": {
                     "TypeLexema": 36,
                     "Lexema": "0",
                     "NumFila": 3,
@@ -176,15 +176,15 @@
                 "Name": "0"
             },
             "Bro": {
-                "TokenType": {
+                "Tipo": {
                     "TypeLexema": 27,
                     "Lexema": "=",
                     "NumFila": 4,
                     "NumCol": 9
                 },
                 "Dtype": 11,
-                "Izq": {
-                    "TokenType": {
+                "Izquierda": {
+                    "Tipo": {
                         "TypeLexema": 35,
                         "Lexema": "y",
                         "NumFila": 4,
@@ -192,8 +192,8 @@
                     },
                     "Dtype": 11
                 },
-                "Der": {
-                    "TokenType": {
+                "Derecha": {
+                    "Tipo": {
                         "TypeLexema": 36,
                         "Lexema": "4",
                         "NumFila": 4,
@@ -203,31 +203,31 @@
                     "Name": "4"
                 },
                 "Bro": {
-                    "TokenType": {
+                    "Tipo": {
                         "TypeLexema": 5,
                         "Lexema": "do",
                         "NumFila": 5,
                         "NumCol": 8
                     },
                     "Dtype": 0,
-                    "Izq": {
-                        "TokenType": {
+                    "Izquierda": {
+                        "Tipo": {
                             "TypeLexema": 2,
                             "Lexema": "if",
                             "NumFila": 6,
                             "NumCol": 13
                         },
                         "Dtype": 0,
-                        "Izq": {
-                            "TokenType": {
+                        "Izquierda": {
+                            "Tipo": {
                                 "TypeLexema": 21,
                                 "Lexema": "<",
                                 "NumFila": 6,
-                                "NumCol": 18
+                                "NumCol": 19
                             },
                             "Dtype": 0,
-                            "Izq": {
-                                "TokenType": {
+                            "Izquierda": {
+                                "Tipo": {
                                     "TypeLexema": 35,
                                     "Lexema": "x",
                                     "NumFila": 6,
@@ -236,27 +236,27 @@
                                 "Dtype": 0,
                                 "Name": "0"
                             },
-                            "Der": {
-                                "TokenType": {
+                            "Derecha": {
+                                "Tipo": {
                                     "TypeLexema": 35,
                                     "Lexema": "y",
                                     "NumFila": 6,
-                                    "NumCol": 20
+                                    "NumCol": 22
                                 },
                                 "Dtype": 0,
                                 "Name": "4"
                             }
                         },
-                        "Med": {
-                            "TokenType": {
+                        "Medio": {
+                            "Tipo": {
                                 "TypeLexema": 27,
                                 "Lexema": "=",
                                 "NumFila": 7,
                                 "NumCol": 19
                             },
                             "Dtype": 11,
-                            "Izq": {
-                                "TokenType": {
+                            "Izquierda": {
+                                "Tipo": {
                                     "TypeLexema": 35,
                                     "Lexema": "y",
                                     "NumFila": 7,
@@ -264,8 +264,8 @@
                                 },
                                 "Dtype": 11
                             },
-                            "Der": {
-                                "TokenType": {
+                            "Derecha": {
+                                "Tipo": {
                                     "TypeLexema": 17,
                                     "Lexema": "-",
                                     "NumFila": 7,
@@ -273,8 +273,8 @@
                                 },
                                 "Dtype": 0,
                                 "Name": "3",
-                                "Izq": {
-                                    "TokenType": {
+                                "Izquierda": {
+                                    "Tipo": {
                                         "TypeLexema": 35,
                                         "Lexema": "y",
                                         "NumFila": 7,
@@ -283,8 +283,8 @@
                                     "Dtype": 0,
                                     "Name": "4"
                                 },
-                                "Der": {
-                                    "TokenType": {
+                                "Derecha": {
+                                    "Tipo": {
                                         "TypeLexema": 36,
                                         "Lexema": "1",
                                         "NumFila": 7,
@@ -296,16 +296,16 @@
                             }
                         }
                     },
-                    "Med": {
-                        "TokenType": {
+                    "Medio": {
+                        "Tipo": {
                             "TypeLexema": 24,
                             "Lexema": ">=",
                             "NumFila": 9,
                             "NumCol": 18
                         },
                         "Dtype": 0,
-                        "Izq": {
-                            "TokenType": {
+                        "Izquierda": {
+                            "Tipo": {
                                 "TypeLexema": 35,
                                 "Lexema": "y",
                                 "NumFila": 9,
@@ -314,8 +314,8 @@
                             "Dtype": 0,
                             "Name": "4"
                         },
-                        "Der": {
-                            "TokenType": {
+                        "Derecha": {
+                            "Tipo": {
                                 "TypeLexema": 36,
                                 "Lexema": "0",
                                 "NumFila": 9,

@@ -8,12 +8,12 @@ type Token struct {
 }
 
 type Nodo struct {
-	TokenType Token  `json:"TokenType,omitempty"`
+	TokenType Token  `json:"Tipo,omitempty"`
 	Dtype	  int
 	AtrValor  string `json:"Name,omitempty"`
-	Izq       *Nodo  `json:"Izq,omitempty"`
-	Med       *Nodo  `json:"Med,omitempty"`
-	Der       *Nodo  `json:"Der,omitempty"`
+	Izq       *Nodo  `json:"Izquierda,omitempty"`
+	Med       *Nodo  `json:"Medio,omitempty"`
+	Der       *Nodo  `json:"Derecha,omitempty"`
 	Bro       *Nodo  `json:"Bro,omitempty"`
 }
 

@@ -54,7 +54,7 @@ func match(tokenType int) bool {
 		token = tmp
 
 	} else {
-		str := "Error en" + " (" + strconv.Itoa(token.NumFila) + "," + strconv.Itoa(token.NumCol) + ")"
+		str := "Error en el renglón " + strconv.Itoa(token.NumFila) + " columna " + strconv.Itoa(token.NumCol)
 		lg.AgregarError(str)
 		err = true
 	}

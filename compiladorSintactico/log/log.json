@@ -7,42 +7,89 @@
         "Token renglón 2 columna 13: ,",
         "Token renglón 2 columna 16: y",
         "Token renglón 2 columna 17: ;",
-        "Token renglón 3 columna 7: x",
-        "Token renglón 3 columna 9: =",
-        "Token renglón 3 columna 11: 0",
-        "Token renglón 3 columna 12: ;",
-        "Token renglón 4 columna 7: y",
+        "Token renglón 3 columna 11: float",
+        "Token renglón 3 columna 14: a",
+        "Token renglón 3 columna 15: ,",
+        "Token renglón 3 columna 18: b",
+        "Token renglón 3 columna 19: ;",
+        "Token renglón 4 columna 7: x",
         "Token renglón 4 columna 9: =",
-        "Token renglón 4 columna 11: 4",
+        "Token renglón 4 columna 11: 5",
         "Token renglón 4 columna 12: ;",
-        "Token renglón 5 columna 8: do",
-        "Token renglón 5 columna 10: {",
-        "Token renglón 6 columna 13: if",
-        "Token renglón 6 columna 14: (",
-        "Token renglón 6 columna 16: x",
-        "Token renglón 6 columna 18: <",
-        "Token renglón 6 columna 20: y",
-        "Token renglón 6 columna 21: )",
-        "Token renglón 6 columna 27: then",
-        "Token renglón 6 columna 28: {",
-        "Token renglón 7 columna 17: y",
-        "Token renglón 7 columna 19: =",
-        "Token renglón 7 columna 21: y",
-        "Token renglón 7 columna 22: -",
-        "Token renglón 7 columna 24: 1",
-        "Token renglón 7 columna 25: ;",
-        "Token renglón 8 columna 11: }",
-        "Token renglón 8 columna 15: fi",
-        "Token renglón 9 columna 6: }",
-        "Token renglón 9 columna 13: until",
+        "Token renglón 5 columna 7: y",
+        "Token renglón 5 columna 9: =",
+        "Token renglón 5 columna 11: 4",
+        "Token renglón 5 columna 12: ;",
+        "Token renglón 6 columna 7: a",
+        "Token renglón 6 columna 9: =",
+        "Token renglón 6 columna 13: 0.0",
+        "Token renglón 6 columna 14: ;",
+        "Token renglón 7 columna 7: b",
+        "Token renglón 7 columna 9: =",
+        "Token renglón 7 columna 13: 3.0",
+        "Token renglón 7 columna 14: ;",
+        "Token renglón 8 columna 8: do",
+        "Token renglón 8 columna 10: {",
+        "Token renglón 9 columna 13: if",
         "Token renglón 9 columna 14: (",
-        "Token renglón 9 columna 16: y",
-        "Token renglón 9 columna 18: >=",
-        "Token renglón 9 columna 20: 0",
+        "Token renglón 9 columna 16: x",
+        "Token renglón 9 columna 18: <",
+        "Token renglón 9 columna 20: y",
         "Token renglón 9 columna 21: )",
-        "Token renglón 9 columna 22: ;",
-        "Token renglón 10 columna 1: }",
-        "Token renglón 11 columna 0: EOF"
+        "Token renglón 9 columna 27: then",
+        "Token renglón 9 columna 28: {",
+        "Token renglón 10 columna 17: y",
+        "Token renglón 10 columna 19: =",
+        "Token renglón 10 columna 21: y",
+        "Token renglón 10 columna 22: -",
+        "Token renglón 10 columna 24: 1",
+        "Token renglón 10 columna 25: ;",
+        "Token renglón 11 columna 11: }",
+        "Token renglón 11 columna 17: else",
+        "Token renglón 11 columna 19: {",
+        "Token renglón 12 columna 17: x",
+        "Token renglón 12 columna 19: =",
+        "Token renglón 12 columna 21: x",
+        "Token renglón 12 columna 22: -",
+        "Token renglón 12 columna 24: 2",
+        "Token renglón 12 columna 25: ;",
+        "Token renglón 13 columna 17: a",
+        "Token renglón 13 columna 19: =",
+        "Token renglón 13 columna 21: a",
+        "Token renglón 13 columna 22: *",
+        "Token renglón 13 columna 24: x",
+        "Token renglón 13 columna 25: +",
+        "Token renglón 13 columna 27: b",
+        "Token renglón 13 columna 28: ;",
+        "Token renglón 14 columna 17: y",
+        "Token renglón 14 columna 19: =",
+        "Token renglón 14 columna 21: y",
+        "Token renglón 14 columna 22: -",
+        "Token renglón 14 columna 24: 1",
+        "Token renglón 14 columna 25: ;",
+        "Token renglón 15 columna 11: }",
+        "Token renglón 16 columna 13: fi",
+        "Token renglón 17 columna 16: while",
+        "Token renglón 17 columna 17: (",
+        "Token renglón 17 columna 19: a",
+        "Token renglón 17 columna 21: ==",
+        "Token renglón 17 columna 23: 3",
+        "Token renglón 17 columna 24: )",
+        "Token renglón 17 columna 25: {",
+        "Token renglón 18 columna 21: write",
+        "Token renglón 18 columna 24: a",
+        "Token renglón 18 columna 25: ;",
+        "Token renglón 19 columna 11: }",
+        "Token renglón 20 columna 6: }",
+        "Token renglón 20 columna 13: until",
+        "Token renglón 20 columna 14: (",
+        "Token renglón 20 columna 16: y",
+        "Token renglón 20 columna 18: >=",
+        "Token renglón 20 columna 20: 0",
+        "Token renglón 20 columna 21: )",
+        "Token renglón 20 columna 22: ;",
+        "Token renglón 21 columna 1: }",
+        "Token renglón 22 columna 0: EOF"
     ],
     "Sintactico": [
         "Match: program (1,8)",
@@ -52,53 +99,110 @@
         "Match: , (2,13)",
         "Match: y (2,16)",
         "Match: ; (2,17)",
-        "Match: x (3,7)",
-        "Match: = (3,9)",
-        "Match: 0 (3,11)",
-        "Match: ; (3,12)",
-        "Match: y (4,7)",
+        "Match: float (3,11)",
+        "Match: a (3,14)",
+        "Match: , (3,15)",
+        "Match: b (3,18)",
+        "Match: ; (3,19)",
+        "Match: x (4,7)",
         "Match: = (4,9)",
-        "Match: 4 (4,11)",
+        "Match: 5 (4,11)",
         "Match: ; (4,12)",
-        "Match: do (5,8)",
-        "Match: { (5,10)",
-        "Match: if (6,13)",
-        "Match: ( (6,14)",
-        "Match: x (6,16)",
-        "Match: < (6,18)",
-        "Match: y (6,20)",
-        "Match: ) (6,21)",
-        "Match: then (6,27)",
-        "Match: { (6,28)",
-        "Match: y (7,17)",
-        "Match: = (7,19)",
-        "Match: y (7,21)",
-        "Match: - (7,22)",
-        "Match: 1 (7,24)",
-        "Match: ; (7,25)",
-        "Match: } (8,11)",
-        "Match: fi (8,15)",
-        "Match: } (9,6)",
-        "Match: until (9,13)",
+        "Match: y (5,7)",
+        "Match: = (5,9)",
+        "Match: 4 (5,11)",
+        "Match: ; (5,12)",
+        "Match: a (6,7)",
+        "Match: = (6,9)",
+        "Match: 0.0 (6,13)",
+        "Match: ; (6,14)",
+        "Match: b (7,7)",
+        "Match: = (7,9)",
+        "Match: 3.0 (7,13)",
+        "Match: ; (7,14)",
+        "Match: do (8,8)",
+        "Match: { (8,10)",
+        "Match: if (9,13)",
         "Match: ( (9,14)",
-        "Match: y (9,16)",
-        "Match: >= (9,18)",
-        "Match: 0 (9,20)",
+        "Match: x (9,16)",
+        "Match: < (9,18)",
+        "Match: y (9,20)",
         "Match: ) (9,21)",
-        "Match: ; (9,22)",
-        "Match: } (10,1)"
+        "Match: then (9,27)",
+        "Match: { (9,28)",
+        "Match: y (10,17)",
+        "Match: = (10,19)",
+        "Match: y (10,21)",
+        "Match: - (10,22)",
+        "Match: 1 (10,24)",
+        "Match: ; (10,25)",
+        "Match: } (11,11)",
+        "Match: else (11,17)",
+        "Match: { (11,19)",
+        "Match: x (12,17)",
+        "Match: = (12,19)",
+        "Match: x (12,21)",
+        "Match: - (12,22)",
+        "Match: 2 (12,24)",
+        "Match: ; (12,25)",
+        "Match: a (13,17)",
+        "Match: = (13,19)",
+        "Match: a (13,21)",
+        "Match: * (13,22)",
+        "Match: x (13,24)",
+        "Match: + (13,25)",
+        "Match: b (13,27)",
+        "Match: ; (13,28)",
+        "Match: y (14,17)",
+        "Match: = (14,19)",
+        "Match: y (14,21)",
+        "Match: - (14,22)",
+        "Match: 1 (14,24)",
+        "Match: ; (14,25)",
+        "Match: } (15,11)",
+        "Match: fi (16,13)",
+        "Match: while (17,16)",
+        "Match: ( (17,17)",
+        "Match: a (17,19)",
+        "Match: == (17,21)",
+        "Match: 3 (17,23)",
+        "Match: ) (17,24)",
+        "Match: { (17,25)",
+        "Match: write (18,21)",
+        "Match: a (18,24)",
+        "Match: ; (18,25)",
+        "Match: } (19,11)",
+        "Match: } (20,6)",
+        "Match: until (20,13)",
+        "Match: ( (20,14)",
+        "Match: y (20,16)",
+        "Match: >= (20,18)",
+        "Match: 0 (20,20)",
+        "Match: ) (20,21)",
+        "Match: ; (20,22)",
+        "Match: } (21,1)"
     ],
     "Semantico": [
         "Agregado simbolos: y",
         "Agregado simbolos: x",
-        "Tabla modificada: x -> 0",
+        "Agregado simbolos: b",
+        "Agregado simbolos: a",
+        "Tabla modificada: x -> 5",
         "Tabla modificada: y -> 4",
-        "Tabla modificada: y -> 3"
+        "Tabla modificada: a -> 0.0",
+        "Tabla modificada: b -> 3.0",
+        "Tabla modificada: y -> 3",
+        "Tabla modificada: x -> 3",
+        "Tabla modificada: y -> 2"
     ],
-    "Errores": [],
+    "Errores": [
+        "No es un Float(13,24)"
+    ],
     "Code": [
-        "(asn,0,x,_)",
+        "(asn,5,x,_)",
         "(asn,4,y,_)",
+        "(asn,0.0,a,_)",
+        "(asn,3.0,b,_)",
         "(lab,L1,_,_)",
         "(lt,x,y,t1)",
         "(if_f,t1,L2,_)",
@@ -106,11 +210,24 @@
         "(asn,t2,y,_)",
         "(goto,L3,_,_)",
         "(lab,L2,_,_)",
+        "(sub,x,2,t3)",
+        "(asn,t3,x,_)",
+        "(mul,a,x,t4)",
+        "(add,t4,b,t5)",
+        "(asn,t5,a,_)",
+        "(sub,y,1,t6)",
+        "(asn,t6,y,_)",
         "(lab,L3,_,_)",
-        "(geq,y,0,t3)",
-        "(if_f,t3,L4,_)",
-        "(goto,L1,_,_)",
         "(lab,L4,_,_)",
+        "(eq,a,3,t7)",
+        "(if_f,t7,L5,_)",
+        "(wri,a,_,_)",
+        "(goto,L4,_,_)",
+        "(lab,L5,_,_)",
+        "(geq,y,0,t8)",
+        "(if_f,t8,L6,_)",
+        "(goto,L1,_,_)",
+        "(lab,L6,_,_)",
         "(halt,_,_,_)"
     ],
     "Tree": {
@@ -146,13 +263,40 @@
                     },
                     "Dtype": 11
                 }
+            },
+            "Bro": {
+                "Tipo": {
+                    "TypeLexema": 10,
+                    "Lexema": "float",
+                    "NumFila": 3,
+                    "NumCol": 11
+                },
+                "Dtype": 10,
+                "Medio": {
+                    "Tipo": {
+                        "TypeLexema": 35,
+                        "Lexema": "a",
+                        "NumFila": 3,
+                        "NumCol": 14
+                    },
+                    "Dtype": 10,
+                    "Medio": {
+                        "Tipo": {
+                            "TypeLexema": 35,
+                            "Lexema": "b",
+                            "NumFila": 3,
+                            "NumCol": 18
+                        },
+                        "Dtype": 10
+                    }
+                }
             }
         },
         "Derecha": {
             "Tipo": {
                 "TypeLexema": 27,
                 "Lexema": "=",
-                "NumFila": 3,
+                "NumFila": 4,
                 "NumCol": 9
             },
             "Dtype": 11,
@@ -160,7 +304,7 @@
                 "Tipo": {
                     "TypeLexema": 35,
                     "Lexema": "x",
-                    "NumFila": 3,
+                    "NumFila": 4,
                     "NumCol": 7
                 },
                 "Dtype": 11
@@ -168,18 +312,18 @@
             "Derecha": {
                 "Tipo": {
                     "TypeLexema": 36,
-                    "Lexema": "0",
-                    "NumFila": 3,
+                    "Lexema": "5",
+                    "NumFila": 4,
                     "NumCol": 11
                 },
                 "Dtype": 11,
-                "Name": "0"
+                "Name": "5"
             },
             "Bro": {
                 "Tipo": {
                     "TypeLexema": 27,
                     "Lexema": "=",
-                    "NumFila": 4,
+                    "NumFila": 5,
                     "NumCol": 9
                 },
                 "Dtype": 11,
@@ -187,7 +331,7 @@
                     "Tipo": {
                         "TypeLexema": 35,
                         "Lexema": "y",
-                        "NumFila": 4,
+                        "NumFila": 5,
                         "NumCol": 7
                     },
                     "Dtype": 11
@@ -196,7 +340,7 @@
                     "Tipo": {
                         "TypeLexema": 36,
                         "Lexema": "4",
-                        "NumFila": 4,
+                        "NumFila": 5,
                         "NumCol": 11
                     },
                     "Dtype": 11,
@@ -204,81 +348,383 @@
                 },
                 "Bro": {
                     "Tipo": {
-                        "TypeLexema": 5,
-                        "Lexema": "do",
-                        "NumFila": 5,
-                        "NumCol": 8
+                        "TypeLexema": 27,
+                        "Lexema": "=",
+                        "NumFila": 6,
+                        "NumCol": 9
                     },
-                    "Dtype": 0,
+                    "Dtype": 10,
                     "Izquierda": {
                         "Tipo": {
-                            "TypeLexema": 2,
-                            "Lexema": "if",
+                            "TypeLexema": 35,
+                            "Lexema": "a",
+                            "NumFila": 6,
+                            "NumCol": 7
+                        },
+                        "Dtype": 10
+                    },
+                    "Derecha": {
+                        "Tipo": {
+                            "TypeLexema": 37,
+                            "Lexema": "0.0",
                             "NumFila": 6,
                             "NumCol": 13
                         },
-                        "Dtype": 0,
+                        "Dtype": 10,
+                        "Name": "0.0"
+                    },
+                    "Bro": {
+                        "Tipo": {
+                            "TypeLexema": 27,
+                            "Lexema": "=",
+                            "NumFila": 7,
+                            "NumCol": 9
+                        },
+                        "Dtype": 10,
                         "Izquierda": {
                             "Tipo": {
-                                "TypeLexema": 21,
-                                "Lexema": "<",
-                                "NumFila": 6,
-                                "NumCol": 18
+                                "TypeLexema": 35,
+                                "Lexema": "b",
+                                "NumFila": 7,
+                                "NumCol": 7
+                            },
+                            "Dtype": 10
+                        },
+                        "Derecha": {
+                            "Tipo": {
+                                "TypeLexema": 37,
+                                "Lexema": "3.0",
+                                "NumFila": 7,
+                                "NumCol": 13
+                            },
+                            "Dtype": 10,
+                            "Name": "3.0"
+                        },
+                        "Bro": {
+                            "Tipo": {
+                                "TypeLexema": 5,
+                                "Lexema": "do",
+                                "NumFila": 8,
+                                "NumCol": 8
                             },
                             "Dtype": 0,
                             "Izquierda": {
                                 "Tipo": {
-                                    "TypeLexema": 35,
-                                    "Lexema": "x",
-                                    "NumFila": 6,
-                                    "NumCol": 16
+                                    "TypeLexema": 2,
+                                    "Lexema": "if",
+                                    "NumFila": 9,
+                                    "NumCol": 13
                                 },
                                 "Dtype": 0,
-                                "Name": "0"
+                                "Izquierda": {
+                                    "Tipo": {
+                                        "TypeLexema": 21,
+                                        "Lexema": "<",
+                                        "NumFila": 9,
+                                        "NumCol": 18
+                                    },
+                                    "Dtype": 0,
+                                    "Izquierda": {
+                                        "Tipo": {
+                                            "TypeLexema": 35,
+                                            "Lexema": "x",
+                                            "NumFila": 9,
+                                            "NumCol": 16
+                                        },
+                                        "Dtype": 0,
+                                        "Name": "5"
+                                    },
+                                    "Derecha": {
+                                        "Tipo": {
+                                            "TypeLexema": 35,
+                                            "Lexema": "y",
+                                            "NumFila": 9,
+                                            "NumCol": 20
+                                        },
+                                        "Dtype": 0,
+                                        "Name": "4"
+                                    }
+                                },
+                                "Medio": {
+                                    "Tipo": {
+                                        "TypeLexema": 27,
+                                        "Lexema": "=",
+                                        "NumFila": 10,
+                                        "NumCol": 19
+                                    },
+                                    "Dtype": 11,
+                                    "Izquierda": {
+                                        "Tipo": {
+                                            "TypeLexema": 35,
+                                            "Lexema": "y",
+                                            "NumFila": 10,
+                                            "NumCol": 17
+                                        },
+                                        "Dtype": 11
+                                    },
+                                    "Derecha": {
+                                        "Tipo": {
+                                            "TypeLexema": 17,
+                                            "Lexema": "-",
+                                            "NumFila": 10,
+                                            "NumCol": 22
+                                        },
+                                        "Dtype": 0,
+                                        "Name": "3",
+                                        "Izquierda": {
+                                            "Tipo": {
+                                                "TypeLexema": 35,
+                                                "Lexema": "y",
+                                                "NumFila": 10,
+                                                "NumCol": 21
+                                            },
+                                            "Dtype": 0,
+                                            "Name": "4"
+                                        },
+                                        "Derecha": {
+                                            "Tipo": {
+                                                "TypeLexema": 36,
+                                                "Lexema": "1",
+                                                "NumFila": 10,
+                                                "NumCol": 24
+                                            },
+                                            "Dtype": 11,
+                                            "Name": "1"
+                                        }
+                                    }
+                                },
+                                "Derecha": {
+                                    "Tipo": {
+                                        "TypeLexema": 27,
+                                        "Lexema": "=",
+                                        "NumFila": 12,
+                                        "NumCol": 19
+                                    },
+                                    "Dtype": 11,
+                                    "Izquierda": {
+                                        "Tipo": {
+                                            "TypeLexema": 35,
+                                            "Lexema": "x",
+                                            "NumFila": 12,
+                                            "NumCol": 17
+                                        },
+                                        "Dtype": 11
+                                    },
+                                    "Derecha": {
+                                        "Tipo": {
+                                            "TypeLexema": 17,
+                                            "Lexema": "-",
+                                            "NumFila": 12,
+                                            "NumCol": 22
+                                        },
+                                        "Dtype": 0,
+                                        "Name": "3",
+                                        "Izquierda": {
+                                            "Tipo": {
+                                                "TypeLexema": 35,
+                                                "Lexema": "x",
+                                                "NumFila": 12,
+                                                "NumCol": 21
+                                            },
+                                            "Dtype": 0,
+                                            "Name": "5"
+                                        },
+                                        "Derecha": {
+                                            "Tipo": {
+                                                "TypeLexema": 36,
+                                                "Lexema": "2",
+                                                "NumFila": 12,
+                                                "NumCol": 24
+                                            },
+                                            "Dtype": 11,
+                                            "Name": "2"
+                                        }
+                                    },
+                                    "Bro": {
+                                        "Tipo": {
+                                            "TypeLexema": 27,
+                                            "Lexema": "=",
+                                            "NumFila": 13,
+                                            "NumCol": 19
+                                        },
+                                        "Dtype": 0,
+                                        "Izquierda": {
+                                            "Tipo": {
+                                                "TypeLexema": 35,
+                                                "Lexema": "a",
+                                                "NumFila": 13,
+                                                "NumCol": 17
+                                            },
+                                            "Dtype": 0
+                                        },
+                                        "Derecha": {
+                                            "Tipo": {
+                                                "TypeLexema": 16,
+                                                "Lexema": "+",
+                                                "NumFila": 13,
+                                                "NumCol": 25
+                                            },
+                                            "Dtype": 0,
+                                            "Izquierda": {
+                                                "Tipo": {
+                                                    "TypeLexema": 18,
+                                                    "Lexema": "*",
+                                                    "NumFila": 13,
+                                                    "NumCol": 22
+                                                },
+                                                "Dtype": 0,
+                                                "Izquierda": {
+                                                    "Tipo": {
+                                                        "TypeLexema": 35,
+                                                        "Lexema": "a",
+                                                        "NumFila": 13,
+                                                        "NumCol": 21
+                                                    },
+                                                    "Dtype": 0,
+                                                    "Name": "0.0"
+                                                },
+                                                "Derecha": {
+                                                    "Tipo": {
+                                                        "TypeLexema": 35,
+                                                        "Lexema": "x",
+                                                        "NumFila": 13,
+                                                        "NumCol": 24
+                                                    },
+                                                    "Dtype": 0
+                                                }
+                                            },
+                                            "Derecha": {
+                                                "Tipo": {
+                                                    "TypeLexema": 35,
+                                                    "Lexema": "b",
+                                                    "NumFila": 13,
+                                                    "NumCol": 27
+                                                },
+                                                "Dtype": 0,
+                                                "Name": "3.0"
+                                            }
+                                        },
+                                        "Bro": {
+                                            "Tipo": {
+                                                "TypeLexema": 27,
+                                                "Lexema": "=",
+                                                "NumFila": 14,
+                                                "NumCol": 19
+                                            },
+                                            "Dtype": 11,
+                                            "Izquierda": {
+                                                "Tipo": {
+                                                    "TypeLexema": 35,
+                                                    "Lexema": "y",
+                                                    "NumFila": 14,
+                                                    "NumCol": 17
+                                                },
+                                                "Dtype": 11
+                                            },
+                                            "Derecha": {
+                                                "Tipo": {
+                                                    "TypeLexema": 17,
+                                                    "Lexema": "-",
+                                                    "NumFila": 14,
+                                                    "NumCol": 22
+                                                },
+                                                "Dtype": 0,
+                                                "Name": "2",
+                                                "Izquierda": {
+                                                    "Tipo": {
+                                                        "TypeLexema": 35,
+                                                        "Lexema": "y",
+                                                        "NumFila": 14,
+                                                        "NumCol": 21
+                                                    },
+                                                    "Dtype": 0,
+                                                    "Name": "3"
+                                                },
+                                                "Derecha": {
+                                                    "Tipo": {
+                                                        "TypeLexema": 36,
+                                                        "Lexema": "1",
+                                                        "NumFila": 14,
+                                                        "NumCol": 24
+                                                    },
+                                                    "Dtype": 11,
+                                                    "Name": "1"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "Bro": {
+                                    "Tipo": {
+                                        "TypeLexema": 7,
+                                        "Lexema": "while",
+                                        "NumFila": 17,
+                                        "NumCol": 16
+                                    },
+                                    "Dtype": 0,
+                                    "Izquierda": {
+                                        "Tipo": {
+                                            "TypeLexema": 25,
+                                            "Lexema": "==",
+                                            "NumFila": 17,
+                                            "NumCol": 21
+                                        },
+                                        "Dtype": 0,
+                                        "Izquierda": {
+                                            "Tipo": {
+                                                "TypeLexema": 35,
+                                                "Lexema": "a",
+                                                "NumFila": 17,
+                                                "NumCol": 19
+                                            },
+                                            "Dtype": 0,
+                                            "Name": "0.0"
+                                        },
+                                        "Derecha": {
+                                            "Tipo": {
+                                                "TypeLexema": 36,
+                                                "Lexema": "3",
+                                                "NumFila": 17,
+                                                "NumCol": 23
+                                            },
+                                            "Dtype": 11,
+                                            "Name": "3.0"
+                                        }
+                                    },
+                                    "Medio": {
+                                        "Tipo": {
+                                            "TypeLexema": 9,
+                                            "Lexema": "write",
+                                            "NumFila": 18,
+                                            "NumCol": 21
+                                        },
+                                        "Dtype": 0,
+                                        "Medio": {
+                                            "Tipo": {
+                                                "TypeLexema": 35,
+                                                "Lexema": "a",
+                                                "NumFila": 18,
+                                                "NumCol": 24
+                                            },
+                                            "Dtype": 0
+                                        }
+                                    }
+                                }
                             },
-                            "Derecha": {
+                            "Medio": {
                                 "Tipo": {
-                                    "TypeLexema": 35,
-                                    "Lexema": "y",
-                                    "NumFila": 6,
-                                    "NumCol": 20
+                                    "TypeLexema": 24,
+                                    "Lexema": ">=",
+                                    "NumFila": 20,
+                                    "NumCol": 18
                                 },
                                 "Dtype": 0,
-                                "Name": "4"
-                            }
-                        },
-                        "Medio": {
-                            "Tipo": {
-                                "TypeLexema": 27,
-                                "Lexema": "=",
-                                "NumFila": 7,
-                                "NumCol": 19
-                            },
-                            "Dtype": 11,
-                            "Izquierda": {
-                                "Tipo": {
-                                    "TypeLexema": 35,
-                                    "Lexema": "y",
-                                    "NumFila": 7,
-                                    "NumCol": 17
-                                },
-                                "Dtype": 11
-                            },
-                            "Derecha": {
-                                "Tipo": {
-                                    "TypeLexema": 17,
-                                    "Lexema": "-",
-                                    "NumFila": 7,
-                                    "NumCol": 22
-                                },
-                                "Dtype": 0,
-                                "Name": "3",
                                 "Izquierda": {
                                     "Tipo": {
                                         "TypeLexema": 35,
                                         "Lexema": "y",
-                                        "NumFila": 7,
-                                        "NumCol": 21
+                                        "NumFila": 20,
+                                        "NumCol": 16
                                     },
                                     "Dtype": 0,
                                     "Name": "4"
@@ -286,43 +732,14 @@
                                 "Derecha": {
                                     "Tipo": {
                                         "TypeLexema": 36,
-                                        "Lexema": "1",
-                                        "NumFila": 7,
-                                        "NumCol": 24
+                                        "Lexema": "0",
+                                        "NumFila": 20,
+                                        "NumCol": 20
                                     },
                                     "Dtype": 11,
-                                    "Name": "1"
+                                    "Name": "0.0"
                                 }
                             }
-                        }
-                    },
-                    "Medio": {
-                        "Tipo": {
-                            "TypeLexema": 24,
-                            "Lexema": ">=",
-                            "NumFila": 9,
-                            "NumCol": 18
-                        },
-                        "Dtype": 0,
-                        "Izquierda": {
-                            "Tipo": {
-                                "TypeLexema": 35,
-                                "Lexema": "y",
-                                "NumFila": 9,
-                                "NumCol": 16
-                            },
-                            "Dtype": 0,
-                            "Name": "4"
-                        },
-                        "Derecha": {
-                            "Tipo": {
-                                "TypeLexema": 36,
-                                "Lexema": "0",
-                                "NumFila": 9,
-                                "NumCol": 20
-                            },
-                            "Dtype": 11,
-                            "Name": "0.0"
                         }
                     }
                 }

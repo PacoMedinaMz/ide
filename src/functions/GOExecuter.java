@@ -101,7 +101,7 @@ public class GOExecuter {
             int es = 0;
             for (String textArbol1 : textArbol) {
                 for (int j = 0; j < es; j++) {
-                    outputSintac += "|    ";
+                    outputSintac += "    ";
                 }
                 outputSintac += textArbol1.substring(0, textArbol1.length() - 2) + "\n";
                 char primero = textArbol1.charAt(0);

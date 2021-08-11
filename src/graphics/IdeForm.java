@@ -1,8 +1,8 @@
 package graphics;
 
-import functions.GOExecuter;
 import functions.AdminConfig;
 import functions.ExtraUtils;
+import functions.GOExecuter;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,7 +17,6 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.GroupLayout;
-import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -237,10 +236,11 @@ public class IdeForm {
         scrollAnalizadorArea.setSize(wid - f.porcentaje(wid, 45), hei - f.porcentaje(hei, 40) - paddingHEI);
 
         errorsArea = new JTextPane();
-        errorsArea.setText("\n No hay salida.");
-        errorsArea.setForeground(texto_color);
+        errorsArea.setText("\n.");
+        errorsArea.setForeground(Color.WHITE);
         errorsArea.setFont(new Font(letra_Fuente, Font.PLAIN, errors_size));
         errorsArea.setEditable(false);
+        errorsArea.setBackground(Color.DARK_GRAY);
         JScrollPane scrollErrorsArea = new JScrollPane(errorsArea);
         scrollErrorsArea.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollErrorsArea.setLocation((2 * paddingWID), hei - f.porcentaje(hei, 33));
@@ -449,10 +449,10 @@ public class IdeForm {
         barra.setFloatable(false);
         barra.setBorderPainted(false);
 
-        palabras.add("Ejecutar");
         palabras.add("Lexico");
         palabras.add("Sintactico");
         palabras.add("Semantico");
+        palabras.add("Ejecutar");
         //palabras.add("Codigo Intermedio");
         palabras.stream().forEach((temp) -> {
             barra.add(agregarBotonBarra(temp));
@@ -469,9 +469,7 @@ public class IdeForm {
 
         switch (a) {
             case "Ejecutar":
-                Icon icon = UIManager.getIcon("FileView.computerIcon");
-                b.setIcon(icon);
-                b.setForeground(Color.BLUE);
+                b.setForeground(Color.RED);
                 b.addActionListener((ActionEvent e) -> {                                /////// agregar codigo de ActionListener
                     if (prerevisionCodigoPanel()) {
                         GOExecuter x = new GOExecuter();
